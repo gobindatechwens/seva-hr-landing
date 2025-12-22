@@ -1,3 +1,61 @@
+/* src/scss/global.scss */
+
+:root {
+  --font-source-sans: var(--font-source-sans);
+  --font-inter: var(--font-inter);
+}
+
+body {
+  font-family: var(--font-source-sans), sans-serif;
+  font-weight: 400;
+}
+
+/* Bold & Extra Bold */
+strong, b, .bold {
+  font-weight: 700;
+}
+
+/* Extra Bold */
+.extra-bold {
+  font-weight: 900;
+}
+
+/* Italic */
+em, i, .italic {
+  font-style: italic;
+}
+
+/* Bold Italic */
+.bold-italic {
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Light weights */
+.light {
+  font-weight: 300;
+}
+
+.thin {
+  font-weight: 200;
+}
+
+.thin-italic {
+  font-weight: 200;
+  font-style: italic;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-source-sans), sans-serif;
+  font-weight: 700;
+}
+
+h1 {
+  font-weight: 800;
+}
+
+// gobinda
 @import './variable.scss';
 .text{
   &-primary{color: $primary;}

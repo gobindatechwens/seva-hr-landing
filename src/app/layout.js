@@ -1,17 +1,23 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Source_Sans_3, Inter } from "next/font/google";
 import "./globals.css";
 import '../scss/global.scss';  
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const sourceSansPro = Source_Sans_3({
+  variable: "--font-source-sans",
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -22,7 +28,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${sourceSansPro.variable} ${inter.variable}`}>
         <Header/>
         {children}
         <Footer/>
