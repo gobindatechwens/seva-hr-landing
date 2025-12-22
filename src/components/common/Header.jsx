@@ -24,16 +24,40 @@ const NavStyle = styled.nav({
     padding: 0,
     margin: 0,
     gap: '1.875rem',
+    '& li:last-child': {
+      border: '1px solid #000',
+      borderRadius: '5px',
+      fontWeight: '600',
+      '& a': {
+        padding: '12px 18px',
+        '&::after': {
+          display: 'none',
+        },
+      }
+    },
+    '& li:nth-last-child(2)': {
+      fontWeight: '600',
+      '& a': {
+        '&::after': {
+          display: 'none',
+        },
+      },
+    },
     '& a': {
       position: 'relative',
       color: '#000',
       textDecoration: 'none',
+      paddingBlock: '1rem',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      cursor: 'pointer',
       '&::after': {
         content: '""',
         position: 'absolute',
         bottom: "-0.3rem",
         left: 0,
-        width: '70%',
+        width: '100%',
         height: '3px',
         backgroundColor: '#00d392',
         transform: 'scaleX(0)',
@@ -46,6 +70,17 @@ const NavStyle = styled.nav({
       '&:hover::after': {
         opacity: "0.3",
       },
+      'span': {
+        height: '1.3rem',
+        width: '1.3rem',
+        display: 'flex',
+        alignItems: 'center',
+        marginInlineEnd: '0.2rem',
+        '& svg': {
+          height: '100%',
+          width: '100%',
+        },
+      }
     }
   }
 });
@@ -57,7 +92,6 @@ export default function Header() {
         <HeaderContainer className="container">
           <Brand>
             <Image src={LogoImg} alt="Logo" width={60} height={60} />
-            logo
           </Brand>
           <NavStyle>
             <ul>
@@ -75,13 +109,79 @@ export default function Header() {
               </li>
               <li>
                 <a to={'/'}>
-                  <span></span>
+                  <span>
+                    <svg
+  width="120"
+  height="120"
+  viewBox="0 0 120 120"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <linearGradient id="callGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F2A65A"/>
+      <stop offset="100%" stop-color="#6B7280"/>
+    </linearGradient>
+  </defs>
+
+  <path
+    d="
+      M42 10
+      C28 10 20 20 20 34
+      C20 60 36 82 56 100
+      C66 110 76 112 86 106
+      L102 96
+      C110 90 110 78 102 72
+      L84 60
+      C76 54 70 56 64 64
+      L58 72
+      C50 66 42 56 38 48
+      L46 40
+      C52 34 52 26 46 18
+      L42 10
+      Z
+    "
+    fill="url(#callGradient)"
+  />
+</svg>
+
+                  </span>
                   +91-80-4567-8900
                 </a>
               </li>
               <li>
                 <a to={'/contact'}>
-                  <span></span>
+                  <span>
+                    <svg
+                      width="120"
+                      height="120"
+                      viewBox="0 0 120 120"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <defs>
+                        <linearGradient id="playGradient" x1="0" y1="0" x2="1" y2="1">
+                          <stop offset="0%" stop-color="#F36C21" />
+                          <stop offset="100%" stop-color="#4B3F8F" />
+                        </linearGradient>
+                      </defs>
+
+                      <path
+                        d="
+      M38 18
+      C24 18 16 30 16 44
+      V76
+      C16 90 24 102 38 102
+      H42
+      L92 68
+      C100 62 100 58 92 52
+      L42 18
+      H38
+      Z
+    "
+                        fill="url(#playGradient)"
+                      />
+                    </svg>
+
+                  </span>
                   View Demo
                 </a>
               </li>
