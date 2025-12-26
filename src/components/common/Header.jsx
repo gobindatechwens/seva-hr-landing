@@ -5,7 +5,7 @@ import LogoImg from "../../assets/Logo.svg";
 import Image from 'next/image';
 // import { NavLink } from "react-router-dom";
 const HeaderLayout = styled.header({
-  position: "fixed", top: 0, left: 0, width: '100%', paddingBlockStart: '1rem', zIndex: 10, backgroundColor: 'transparent', transition: 'all .3s', boxShadow: '0px 4px 4px 0px #BDD8FF33', overflow: 'hidden',
+  position: "fixed", top: 0, left: 0, width: '100%', paddingBlockStart: '1rem', zIndex: 10, backgroundColor: '#fff', transition: 'all .3s', boxShadow: '0px 4px 4px 0px #BDD8FF33', overflow: 'hidden',
   '&.sticky': { backgroundColor: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(0.375rem)', },
   '@media (max-width: 550px)': {
     padding: ' 0.625rem 1.25rem',
