@@ -2,11 +2,12 @@
 import React from "react"
 import styled from "styled-components"
 // import Image from "../assets/TextureBg.png"
-
+import TextureBg from "../assets/TextureBg.png"
 const Section = styled.section({
   paddingBlock: "3.5rem",
   background: "#BBD8F2",
-  backgroundImage: `linear-gradient(186deg, rgba(187, 216, 242, 1) 0%, rgba(237, 240, 206, 1) 100%), url("../assets/TextureBg.png")`,
+  // backgroundImage: `linear-gradient(186deg, rgba(187, 216, 242, 1) 0%, rgba(237, 240, 206, 1) 100%), url("../assets/TextureBg.png")`,
+  backgroundImage: `linear-gradient(186deg, rgba(187, 216, 242, 1) 0%, rgba(237, 240, 206, 1) 100%), url(${TextureBg.src})`,
   backgroundRepeat: "repeat",
   backgroundSize: "contain",
   "& .centerized":{
@@ -259,7 +260,18 @@ export default function Features() {
               <ol>
                 <li>
                   <div>
-                    <svg></svg>
+                    <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="24" cy="24" r="24" fill="#4F6BFF"/>
+  <path
+    d="M14 24.5L21 31L34 17"
+    fill="none"
+    stroke="#FFFFFF"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
+
                   </div>
                   Smart Automation</li>
                 <li>
