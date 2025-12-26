@@ -2,29 +2,31 @@
 import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import TextureBg from "../assets/TextureBg.png"
-
-// import Image from "../assets/TextureBg.png"
+import Image from "next/image"
+import brand from "../assets/image 4.svg"
+import packlock from "../assets/padlock-check 1.svg"
+import cirtificate from "../assets/Vector.svg"
 
 const securityData = [
   {
     title: "ISO 27001 Ready",
     desc: "Following international standards for information security management",
-    icon: "/icons/iso.svg",
+    icon: cirtificate,
   },
   {
     title: "AES-256 Encryption",
     desc: "Military-grade encryption for all your sensitive data",
-    icon: "/icons/encryption.svg",
+    icon: cirtificate,
   },
   {
     title: "Secure Document Vault",
     desc: "Protected storage for employee documents and records",
-    icon: "/icons/vault.svg",
+    icon: cirtificate,
   },
   {
     title: "Role-based Access",
     desc: "Controlled access ensuring data visibility by role",
-    icon: "/icons/access.svg",
+    icon: cirtificate,
   },
 ]
 
@@ -390,16 +392,19 @@ export default function Security() {
         <p>Bank-level security meets statutory compliance automation. Your workforce data is safe, secure, and always audit-ready.</p>
         <SectionRow ref={sectionRef}>
           <Left className="animate">
+            <p> 
+              <Image src={packlock} alt="" width={22} height={22} />cirtificate
+            </p>
             <CardList>
-              {securityData.map((item, index) => (
+              {securityData?.map((item, index) => (
                 <li key={index}>
                   <HeaderRow>
                     <div>
-                      {/* <Image src={item.icon} alt="" width={22} height={22} /> */}
+                      <Image src={item?.icon} alt="" width={22} height={22} />
                     </div>
-                    <h4>{item.title}</h4>
+                    <h4>{item?.title}</h4>
                   </HeaderRow>
-                  <p>{item.desc}</p>
+                  <p>{item?.desc}</p>
                 </li>
               ))}
             </CardList>
@@ -434,7 +439,9 @@ export default function Security() {
 
               </li>
             </FloatingWrap>
-            <Brand></Brand>
+            <Brand>
+            <Image src={brand}/>
+            </Brand>
             <Detailslist>
               <li>
                 <div>
