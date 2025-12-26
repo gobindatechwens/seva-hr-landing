@@ -3,16 +3,25 @@ import React from "react"
 import styled from "styled-components"
 // import Image from "../assets/TextureBg.png"
 import TextureBg from "../assets/TextureBg.png"
+import SparkleBg from "../assets/sparkle.svg"
+import Image from "next/image"
+import calculator from "../assets/calculator.svg"
+import email from "../assets/email.svg"
+import location from "../assets/location.svg"
+import privacy from "../assets/privacy.svg"
+import watch from "../assets/watch.svg"
+import Spotify from "../assets/image 1.svg"
+
 const Section = styled.section({
   paddingBlock: "3.5rem",
   background: "#BBD8F2",
   // backgroundImage: `linear-gradient(186deg, rgba(187, 216, 242, 1) 0%, rgba(237, 240, 206, 1) 100%), url("../assets/TextureBg.png")`,
   backgroundImage: `linear-gradient(186deg, rgb(187 216 242 / 93%) 0%, rgb(237 240 206 / 83%) 100%), url(${TextureBg.src})`,
   backgroundRepeat: "repeat",
-  
-  "& .centerized":{
-    display:"flex",
-    justifyContent:"center",
+
+  "& .centerized": {
+    display: "flex",
+    justifyContent: "center",
   },
   "& h3": {
     fontSize: "1.125rem",
@@ -32,7 +41,7 @@ const Section = styled.section({
       width: '1.875rem',
       left: '0',
       top: '0',
-      backgroundImage: 'url(../assets/sparkle.svg)',
+      backgroundImage: `url(${SparkleBg.src})`,
       backgroundRepeat: 'no-repeat',
     }
   },
@@ -61,7 +70,7 @@ const FeatureList = styled.ul({
   flexWrap: "wrap",
   gap: "2rem",
   width: "100%",
-  marginBlockStart:"2rem",
+  marginBlockStart: "2rem",
   '& li': {
     width: "calc((100% - 6rem) / 4)",
     display: "flex",
@@ -176,10 +185,10 @@ const CtaButton = styled.button({
   border: "none",
   background: "linear-gradient(151.19deg, #476FFF 1.77%, #4600B6 71.94%)",
   color: "#fff",
-  fontSize:"1.125rem",
+  fontSize: "1.125rem",
   fontWeight: 700,
   cursor: "pointer",
-  maxWidth:"14.375rem",
+  maxWidth: "14.375rem",
 })
 
 export default function Features() {
@@ -187,14 +196,16 @@ export default function Features() {
     <Section>
       <div className="container">
         <div className="centerized">
-          <h3>✨ Powerful Features</h3>
+          <h3> Powerful Features</h3>
         </div>
         <h2>Built for <span>Operational Excellence</span></h2>
         <p>Purpose-built for shift-based, multi-location operations with transparent automation and real-time visibility</p>
         <FeatureList>
           <li>
             <FeatureItem>
-              <IconWrap>📊</IconWrap>
+              <IconWrap>
+                <Image src={watch}/>
+              </IconWrap>
               <h4>Smart Attendance & Productivity</h4>
               <p>Automated time tracking with intelligent shift management and real-time insights</p>
             </FeatureItem>
@@ -202,7 +213,9 @@ export default function Features() {
 
           <li>
             <FeatureItem>
-              <IconWrap>💰</IconWrap>
+              <IconWrap>
+                <Image src={calculator}/>
+              </IconWrap>
               <h4>Transparent Salary Calculation</h4>
               <p>Auto-computed payroll with audit-ready accuracy, eliminating disputes completely</p>
             </FeatureItem>
@@ -210,7 +223,9 @@ export default function Features() {
 
           <li>
             <FeatureItem>
-              <IconWrap>⚙️</IconWrap>
+              <IconWrap>
+                <Image src={email}/>
+              </IconWrap>
               <h4>Multi-Level Payroll Engine</h4>
               <p>Scalable framework built specifically for factories with unlimited configurations</p>
             </FeatureItem>
@@ -219,7 +234,9 @@ export default function Features() {
 
           <li>
             <FeatureItem>
-              <IconWrap>📍</IconWrap>
+              <IconWrap>
+                <Image src={location}/>
+              </IconWrap>
               <h4>Geo-Fencing & Live Tracking</h4>
               <p>Location-verified attendance with live workforce visibility for on-site accountability</p>
             </FeatureItem>
@@ -227,7 +244,9 @@ export default function Features() {
 
           <li>
             <FeatureItem>
-              <IconWrap>📄</IconWrap>
+              <IconWrap>
+                <Image src={privacy}/>
+              </IconWrap>
               <h4>100% Compliance Automation</h4>
               <p>EPF, ESI, PT, LWF, TDS fully auto-generated with state-wise accuracy</p>
             </FeatureItem>
@@ -261,27 +280,46 @@ export default function Features() {
                 <li>
                   <div>
                     <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="24" cy="24" r="24" fill="#4F6BFF"/>
-  <path
-    d="M14 24.5L21 31L34 17"
-    fill="none"
-    stroke="#FFFFFF"
-    stroke-width="4"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-</svg>
-
+                      <circle cx="24" cy="24" r="24" fill="#4F6BFF" />
+                      <path
+                        d="M14 24.5L21 31L34 17"
+                        fill="none"
+                        stroke="#FFFFFF"
+                        stroke-width="4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
                   </div>
                   Smart Automation</li>
                 <li>
                   <div>
-                    <svg></svg>
+                    <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="24" cy="24" r="24" fill="#4F6BFF" />
+                      <path
+                        d="M14 24.5L21 31L34 17"
+                        fill="none"
+                        stroke="#FFFFFF"
+                        stroke-width="4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
                   </div>
                   Zero Manual Work</li>
                 <li>
                   <div>
-                    <svg></svg>
+                    <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="24" cy="24" r="24" fill="#4F6BFF" />
+                      <path
+                        d="M14 24.5L21 31L34 17"
+                        fill="none"
+                        stroke="#FFFFFF"
+                        stroke-width="4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
                   </div>
                   Instant Insights</li>
               </ol>

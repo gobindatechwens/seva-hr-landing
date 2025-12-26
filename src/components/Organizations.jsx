@@ -2,6 +2,10 @@
 import React from "react"
 import styled from "styled-components"
 import Image from "next/image"
+import Spotify from "../assets/image 1.svg"
+import Airbnb from "../assets/image 2.svg"
+import Google from "../assets/image 3.svg"
+import Slack from "../assets/image 4.svg"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay, FreeMode } from "swiper/modules"
@@ -38,11 +42,10 @@ const Right = styled.div({
 })
 
 const logos = [
-  "/logos/spotify.svg",
-  "/logos/airbnb.svg",
-  "/logos/google.svg",
-  "/logos/slack.svg",
-  "/logos/microsoft.svg",
+  Spotify,
+  Airbnb,
+  Google,
+  Slack
 ]
 
 export default function Organizations() {
@@ -73,7 +76,7 @@ export default function Organizations() {
               allowTouchMove={false}
               className="logo-swiper"
             >
-              {[...logos, ...logos].map((logo, index) => (
+              {logos?.map((logo, index) => (
                 <SwiperSlide key={index} style={{ width: "auto" }}>
                   <Image
                     src={logo}
