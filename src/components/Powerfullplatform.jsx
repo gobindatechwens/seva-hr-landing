@@ -62,11 +62,75 @@ const Left = styled.div({
   opacity: 0,
   transform: "translateX(-3rem)",
   transition: "all 0.8s ease",
-
   "&.in-view": {
     opacity: 1,
     transform: "translateX(0)",
   },
+  "& ul":{
+    padding:"0rem",
+    margin:"0rem",
+    listStyle:"none",
+    display:"flex",
+    flexWrap:"wrap",
+    justifyContent:"center",
+    gap:"1rem",
+    "& li":{
+      width:"calc((100% -2rem) / 3)",
+      padding:"0.063rem",
+      position:"relative",
+      borderRadius:"1.188rem",
+      boxShadow: "0px 4px 36px 0px #00000014",
+      overflow:"hidden",
+      padding:"1.875rem 1.563rem",
+        '&:after': {
+          content: "''",
+          position: 'absolute',
+          height: '100%',
+          width: '100%',
+          left: '0',
+          top: '0',
+          background: "linear-gradient(90deg, #FFD7BC 0%, #D9D1FF 106.8%)",
+          zIndex:"0",
+        },
+        '&:before': {
+          content: "''",
+          position: 'absolute',
+          height: 'calc(100% - 0.125rem)',
+          width: 'calc(100% - 0.125rem)',
+          left: '1px',
+          top: '1px',
+          background: "#fff",
+          zIndex:"1",
+          borderRadius:"1.125rem",
+        },
+      "& div":{
+        position:"relative",
+        zIndex:"3",
+        display:"flex",
+        alignItems:"center",
+        gap:"0.5rem",
+        marginBlockEnd:"1.25rem",
+        "& span":{
+          height:"2.5rem",
+          width:"2.5rem",
+          display:"flex",
+          alignItems:"center",
+          "& svg":{
+            height:"100%",
+            width:"100%",
+          }
+        },
+        "& h4":{
+        marginBlockEnd:"0rem",
+        },
+      },
+      "& p":{
+        marginBlockEnd:"0rem",
+        position:"relative",
+        zIndex:"3",
+      }
+    }
+  }
 })
 
 
@@ -98,9 +162,6 @@ export const Right = styled.div({
 
 export default function Powerfullplatform() {
   const sectionRef = useRef(null);
-  const [accuracyVisible, setAccuracyVisible] = React.useState(false);
-
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -109,7 +170,7 @@ export default function Powerfullplatform() {
             .querySelectorAll(".animate")
             .forEach(el => el.classList.add("in-view"));
 
-         
+
         }
       },
       { threshold: 0.3 }
@@ -121,6 +182,22 @@ export default function Powerfullplatform() {
 
     return () => observer.disconnect();
   }, []);
+  const features = [
+    {
+      title: "One Smart Shift Management",
+      description: "Manual shift registers causing errors",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <path
+            d="M35 0H23.3333C20.5767 0 18.3333 2.24333 18.3333 5V15C18.3333 17.7567 20.5767 20 23.3333 20H35C37.7567 20 40 17.7567 40 15V5C40 2.24333 37.7567 0 35 0Z..."
+            fill="#476FFF"
+          />
+        </svg>
+      ),
+    },
+    
+  ]
+
 
   return (
     <Section>
@@ -132,17 +209,22 @@ export default function Powerfullplatform() {
         <p>One unified platform for HR, Attendance, Payroll, Compliance, and Analytics — built for complex shift-based operations across all industries.</p>
         <SectionRow ref={sectionRef}>
           <Left className="animate">
-             
-     
+            <ul>
+              {features.map((item, index) => (
+                <li key={index}>
+                  <div>
+                    <span>{item.icon}</span>
+                    <h4 className="bold">{item.title}</h4>
+                  </div>
+                  <p>{item.description}</p>
+                </li>
+              ))}
+            </ul>
+
           </Left>
           <Right className="animate">
-           
-       
           </Right>
-
         </SectionRow>
-
-
       </div>
     </Section>
   )
