@@ -2,6 +2,8 @@
 import React from 'react'
 import styled from 'styled-components';
 import LogoImg from "../../assets/Logo.svg";
+import CallIcon from "../../assets/callIcon.svg";
+import PlayBtnIcon from "../../assets/playButton.svg";
 import Image from 'next/image';
 // import { NavLink } from "react-router-dom";
 const HeaderLayout = styled.header({
@@ -25,20 +27,20 @@ const NavStyle = styled.nav({
     margin: 0,
     gap: '1.875rem',
     '& li:last-child': {
-      padding:"1px",
+      padding: "1px",
       borderRadius: '0.875rem',
       fontWeight: '600',
       transition: "box-shadow 0.35s ease-in-out",
       background: "linear-gradient(151.19deg, #476FFF 1.77%, #4600B6 71.94%)",
       "&:hover": {
-      boxShadow: `0 0 0.5rem rgba(79, 70, 229, 0.35), 0 0 1.25rem rgba(124, 58, 237, 0.3), 0 0 2.5rem rgba(124, 58, 237, 0.2)`,
-      transition: "box-shadow 0.35s ease-in-out",
+        boxShadow: `0 0 0.5rem rgba(79, 70, 229, 0.35), 0 0 1.25rem rgba(124, 58, 237, 0.3), 0 0 2.5rem rgba(124, 58, 237, 0.2)`,
+        transition: "box-shadow 0.35s ease-in-out",
       },
       '& a': {
         padding: '0.625rem 1.125rem',
-        background:"#fff",
-        borderRadius:"0.875rem",
-        color:"#4600B6",
+        background: "#fff",
+        borderRadius: "0.875rem",
+        color: "#4600B6",
         '&::after': {
           display: 'none',
         },
@@ -140,7 +142,7 @@ export default function Header() {
               <li>
                 <a to={'/'}>
                   <span>
-               
+                    <Image src={CallIcon} alt='callicon' />
                   </span>
                   +91-80-4567-8900
                 </a>
@@ -148,7 +150,7 @@ export default function Header() {
               <li>
                 <a to={'/contact'}>
                   <span>
-              
+                    <Image src={PlayBtnIcon} alt='callicon' />
                   </span>
                   View Demo
                 </a>

@@ -1,9 +1,11 @@
 "use client"
-
 import React from "react"
 import styled from "styled-components"
 import TextureBg from "../../assets/TextureBg.png"
-
+import Image from "next/image"
+import WhiteBrandIcon from "../../assets/white-brand-icon.svg";
+import WhiteCallIcon from "../../assets/white-call-icon.svg";
+import WhiteEmailIcon from "../../assets/white-email-icon.svg";
 
 const FooterWrapper = styled.footer({
   backgroundImage: `linear-gradient(180deg, #4b3effe6 0%, #200484f5 100%), url(${TextureBg.src})`,
@@ -108,15 +110,17 @@ const Footer = () => {
         <FooterList>
           <li className="col-brand">
             <Logo>
-              
+              <Image src={WhiteBrandIcon} alt="icon"/>
             </Logo>
             <p>
               Modern HRMS built for Indian businesses. Clean, customizable, and
               completely compliant with all regulatory requirements.
             </p>
             <Contact>
-              <span>📞 +91-80-4567-8900</span>
-              <span>✉️ hello@sevahr.com</span>
+              <span>
+                <Image src={WhiteCallIcon} alt="icon"/>
+                +91-80-4567-8900</span>
+              <span><Image src={WhiteEmailIcon} alt="icon"/>hello@sevahr.com</span>
             </Contact>
           </li>
           <li className="col-features">
