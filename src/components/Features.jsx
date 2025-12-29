@@ -24,7 +24,6 @@ const Section = styled.section({
     justifyContent: "center",
   },
   "& h3": {
-    fontSize: "1.125rem",
     fontWeight: 600,
     lineHeight: 1.3,
     color: '#004CAE',
@@ -95,7 +94,6 @@ const FeatureItem = styled.div({
   padding: "1.5rem",
   height: "100%",
   '& h4': {
-    fontSize: '1.125rem',
     fontWeight: '700',
     marginBlockEnd: '0.5rem',
     maxWidth: '80%',

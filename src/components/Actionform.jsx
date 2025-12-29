@@ -35,7 +35,6 @@ const Section = styled.section({
     justifyContent: "center",
   },
   "& h3": {
-    fontSize: "1.125rem",
     fontWeight: 600,
     lineHeight: 1.3,
     color: '#000',

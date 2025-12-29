@@ -20,30 +20,40 @@ const Section = styled.section({
 const SectionRow = styled.div({
   display: "flex",
   alignItems: "flex-start",
-  gap: "2.5rem",
-    "@media (max-width: 991px)": {
-      flexDirection:"column",
-    },
+  "@media (max-width: 991px)": {
+    flexDirection: "column",
+  },
 })
 
 const Left = styled.div({
-  width: "30%",
+  width: "35%",
   "@media (max-width: 991px)": {
     width: "100%",
   },
   "& h2": {
     fontSize: "1.688rem",
     fontWeight: 700,
-    lineHeight: 1.3,
+    "@media (max-width: 1199px)": {
+      fontSize: "1rem",
+    },
   },
 })
 
 const Right = styled.div({
-  width: "70%",
+  width: "65%",
+  background: 'linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)',
+  position:"relative",
   "@media (max-width: 991px)": {
     width: "100%",
   },
-  background: 'linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)',
+  "&::after": {
+    content: '""',
+    position: "absolute",
+    inset: 0,
+    background:"linear-gradient(270deg,rgba(255, 255, 255, 0) 79%, rgba(255, 255, 255, 1) 100%)",
+    pointerEvents: "none",
+    zIndex: 2,
+  },
   "& .logo-swiper .swiper-wrapper": {
     transitionTimingFunction: "linear !important",
   },
@@ -67,7 +77,7 @@ export default function Organizations() {
           </Left>
           <Right>
             <Swiper
-              dir="rtl" 
+              dir="rtl"
               modules={[Autoplay, FreeMode]}
               slidesPerView="auto"
               spaceBetween={56}
@@ -84,7 +94,7 @@ export default function Organizations() {
               allowTouchMove={false}
               className="logo-swiper"
             >
-              {[...logos,...logos].map((logo, index) => (
+              {[...logos, ...logos].map((logo, index) => (
                 <SwiperSlide key={index} style={{ width: "auto" }}>
                   <Image
                     src={logo}

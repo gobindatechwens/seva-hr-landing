@@ -18,7 +18,6 @@ const Section = styled.section({
     justifyContent: "center",
   },
   "& h3": {
-    fontSize: "1.125rem",
     fontWeight: 600,
     lineHeight: 1.3,
     color: '#000',
@@ -69,6 +68,9 @@ const Left = styled.div({
   transform: "translateX(-3rem)",
   transition: "all 0.8s ease",
   paddingInlineEnd: "1rem",
+  "@media (max-width: 991px)": {
+    width: "100%",
+  },
   "&.in-view": {
     opacity: 1,
     transform: "translateX(0)",
@@ -174,7 +176,7 @@ export const Right = styled.div({
           width: "100%",
         }
       },
-      "& h5": {
+      "& h6": {
         background: 'linear-gradient(90deg, #002BFF -36.06%, #BC1DAF 96.9%)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
@@ -187,6 +189,9 @@ export const Right = styled.div({
     }
 
 
+  },
+  "@media (max-width: 991px)": {
+    width: "100%",
   },
   "&.in-view": {
     opacity: 1,
@@ -209,7 +214,7 @@ const CtaButton = styled.button({
   borderRadius: "1.125rem",
   border: "none",
   color: "#fff",
-  fontSize: "1.125rem",
+  fontSize: "1rem",
   fontWeight: 700,
   cursor: "pointer",
   width: "calc(100% - 3rem)",
@@ -366,7 +371,7 @@ export default function Powerfullplatform() {
                       />
                     </svg>
                 </div>
-                <h5>Employee Lifecycle Management</h5>
+                <h6>Employee Lifecycle Management</h6>
               </li>
               <li>
                 <div>
@@ -382,7 +387,7 @@ export default function Powerfullplatform() {
                       />
                     </svg>
                 </div>
-                <h5>Smart Shift & Attendance</h5>
+                <h6>Smart Shift & Attendance</h6>
               </li>
               <li>
                 <div>
@@ -398,7 +403,7 @@ export default function Powerfullplatform() {
                       />
                     </svg>
                 </div>
-                <h5>Multi-Level Payroll Engine</h5>
+                <h6>Multi-Level Payroll Engine</h6>
               </li>
               <li>
                 <div>
@@ -414,7 +419,7 @@ export default function Powerfullplatform() {
                       />
                     </svg>
                 </div>
-                <h5>Geo-Fencing & GPS Tracking</h5>
+                <h6>Geo-Fencing & GPS Tracking</h6>
               </li>
             </ul>
             <Buttonwrap>

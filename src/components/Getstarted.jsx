@@ -9,10 +9,7 @@ const Section = styled.section({
 const CtaWrap = styled.div({
   borderRadius: "1.75rem",
   padding: "1.875rem 2.5rem",
-    backgroundImage: `
-        linear-gradient(117deg,rgba(70, 106, 250, 0.86) 0%, rgba(19, 19, 176, 0.87) 100%),
-        url(${TextureBg.src})
-      `,
+  backgroundImage: `linear-gradient(117deg,rgba(70, 106, 250, 0.86) 0%, rgba(19, 19, 176, 0.87) 100%),url(${TextureBg.src})`,
   color: "#fff",
   position: "relative",
   overflow: "hidden",
@@ -21,9 +18,7 @@ const CtaWrap = styled.div({
     content: '""',
     position: "absolute",
     inset: 0,
-    background:
-      "radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15), transparent 40%)",
-    pointerEvents: "none",
+    background:"radial-gradient(circle at 20% 30%, rgba(255,255,255,0.15), transparent 40%)",pointerEvents: "none",
   },
 
   "@media (max-width: 991px)": {
@@ -61,7 +56,7 @@ const Left = styled.div({
 
   "& button": {
     padding: "1rem 1.5rem",
-    width:"100%",
+    width: "100%",
     borderRadius: "1.2rem",
     border: "none",
     background: "#fff",
@@ -71,7 +66,7 @@ const Left = styled.div({
     display: "flex",
     alignItems: "center",
     gap: "0.5rem",
-    justifyContent:"center",
+    justifyContent: "center",
   },
 })
 
@@ -80,9 +75,9 @@ const Right = styled.div({
   display: "flex",
   flexWrap: "wrap",
   gap: "0.75rem",
-  background:"rgba(255, 255, 255, 0.1)",
-  padding:"1.5rem 1rem",
-  borderRadius:"1.3rem",
+  background: "rgba(255, 255, 255, 0.1)",
+  padding: "1.5rem 1rem",
+  borderRadius: "1.3rem",
 
   "@media (max-width: 991px)": {
     width: "100%",

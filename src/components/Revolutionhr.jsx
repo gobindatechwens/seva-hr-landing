@@ -34,7 +34,6 @@ const Left = styled.div({
       width: "100%",
     },
   "& h3": {
-    fontSize: "1.125rem",
     fontWeight: 600,
     lineHeight: 1.3,
     color:'#004CAE',
@@ -118,6 +117,9 @@ const Card = styled.li({
     fontSize: "1.25rem",
     fontWeight: "700",
     marginBlockEnd: "0.25rem",
+    "@media (max-width: 1199px)": {
+      fontSize:"1.063rem",
+    },
   },
 
   "& span": {
