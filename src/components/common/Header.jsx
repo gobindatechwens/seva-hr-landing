@@ -103,8 +103,8 @@ const NavStyle = styled.nav({
         opacity: "0.7",
       },
       'span': {
-        height: '1.3rem',
-        width: '1.3rem',
+        height: '0.875rem',
+        width: '0.875rem',
         display: 'flex',
         alignItems: 'center',
         marginInlineEnd: '0.2rem',
