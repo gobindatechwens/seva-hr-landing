@@ -6,6 +6,7 @@ import Image from "next/image"
 import Spotify from "../assets/image 1.svg"
 import Airbnb from "../assets/image 2.svg"
 import Google from "../assets/image 3.svg"
+import Star from "../assets/Star.svg"
 import Slack from "../assets/image 4.svg"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay, FreeMode } from "swiper/modules"
@@ -82,7 +83,21 @@ export default function Organizations() {
       <div className="container">
         <SectionRow>
           <Left>
-            <span>⭐⭐⭐⭐⭐</span>
+            <span>
+              <Image src={Star} alt="star-icon"/>
+            </span>
+            <span>
+              <Image src={Star} alt="star-icon"/>
+            </span>
+            <span>
+              <Image src={Star} alt="star-icon"/>
+            </span>
+            <span>
+              <Image src={Star} alt="star-icon"/>
+            </span>
+            <span>
+              <Image src={Star} alt="star-icon"/>
+            </span>
             <h2>Trusted by 15+ organizations</h2>
           </Left>
           <Right>

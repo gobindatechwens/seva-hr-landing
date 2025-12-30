@@ -1,6 +1,6 @@
 import { Source_Sans_3, Inter } from "next/font/google";
-import "./globals.css";
 import '../scss/global.scss';  
+import "./globals.css";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 

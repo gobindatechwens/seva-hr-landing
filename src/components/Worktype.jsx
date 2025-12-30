@@ -1,7 +1,8 @@
 "use client"
 import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
-import SparkleBg from "../assets/sparkle.svg"
+import SparkleBg from "../assets/bajrabiddyt-gradient.svg"
+
 const featureData = [
   {
     step: 1,
