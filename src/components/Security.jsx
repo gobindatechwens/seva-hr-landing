@@ -433,7 +433,7 @@ export default function Security() {
           <Left className="animate">
             <CardListHeading>
               <div>
-                <Image src={packlock} alt="" width={100} height={100} />
+                <Image src={packlock} alt="icon" width={100} height={100} />
               </div>
               Security Features
             </CardListHeading>
@@ -442,7 +442,7 @@ export default function Security() {
                 <li key={index}>
                   <HeaderRow>
                     <div>
-                      <Image src={item?.icon} alt="" width={100} height={100} />
+                      <Image src={item?.icon} alt="icon" width={100} height={100} />
                     </div>
                     <h4>{item?.title}</h4>
                   </HeaderRow>

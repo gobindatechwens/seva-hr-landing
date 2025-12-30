@@ -350,7 +350,7 @@ export default function Powerfullplatform() {
               {features?.map((item, index) => (
                 <li key={index}>
                   <div>
-                    <Image src={item?.icon} />
+                    <Image src={item?.icon} alt="icon"/>
                     <h4 className="bold">{item?.title}</h4>
                   </div>
                   <p>{item?.description}</p>

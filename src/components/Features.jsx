@@ -202,7 +202,7 @@ export default function Features() {
           <li>
             <FeatureItem>
               <IconWrap>
-                <Image src={watch}/>
+                <Image src={watch} alt="icon"/>
               </IconWrap>
               <h4>Smart Attendance & Productivity</h4>
               <p>Automated time tracking with intelligent shift management and real-time insights</p>
@@ -212,7 +212,7 @@ export default function Features() {
           <li>
             <FeatureItem>
               <IconWrap>
-                <Image src={calculator}/>
+                <Image src={calculator} alt="icon"/>
               </IconWrap>
               <h4>Transparent Salary Calculation</h4>
               <p>Auto-computed payroll with audit-ready accuracy, eliminating disputes completely</p>
@@ -222,7 +222,7 @@ export default function Features() {
           <li>
             <FeatureItem>
               <IconWrap>
-                <Image src={email}/>
+                <Image src={email} alt="icon"/>
               </IconWrap>
               <h4>Multi-Level Payroll Engine</h4>
               <p>Scalable framework built specifically for factories with unlimited configurations</p>
@@ -233,7 +233,7 @@ export default function Features() {
           <li>
             <FeatureItem>
               <IconWrap>
-                <Image src={location}/>
+                <Image src={location} alt="icon"/>
               </IconWrap>
               <h4>Geo-Fencing & Live Tracking</h4>
               <p>Location-verified attendance with live workforce visibility for on-site accountability</p>
@@ -243,7 +243,7 @@ export default function Features() {
           <li>
             <FeatureItem>
               <IconWrap>
-                <Image src={privacy}/>
+                <Image src={privacy} alt="icon"/>
               </IconWrap>
               <h4>100% Compliance Automation</h4>
               <p>EPF, ESI, PT, LWF, TDS fully auto-generated with state-wise accuracy</p>
