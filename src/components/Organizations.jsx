@@ -1,6 +1,6 @@
 "use client"
 import React from "react"
-import '../scss/variable.scss';
+
 import styled from "styled-components"
 import Image from "next/image"
 import Spotify from "../assets/image 1.svg"

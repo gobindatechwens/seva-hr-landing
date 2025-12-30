@@ -59,19 +59,7 @@ h1 {
 }
 
 
-@import './variable.scss';
-// .text{
-//   &-primary{color: $primary;}
-//   &-secondary{color: $secondary;}
-//   &-accent{color: $accent;}
-//   &-error{color: $error;}
-//   &-success{color: $success;}
-//   &-info{color: $info;}
-//   &-white{color: $white;}
-// }
-// [bgColor="primary"]{background-color: $primary!important;}
-// [bgColor="secondary"]{background-color: $secondary!important;}
-// [bgColor="accent"]{background-color: $accent!important;}
+
 h1,.h1,h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6,p{margin-block-start: 0;font-weight: 500;}
 h1,.h1{font-size:3.625rem;line-height:1.25; font-weight:300;}
 h2,.h2{font-size: 2.938rem;font-weight: 700;}
