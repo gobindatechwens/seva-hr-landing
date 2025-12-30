@@ -15,22 +15,46 @@ const Wrapper = styled.div({
   textAlign: "center",
   margin: "0 auto",
   maxWidth: "760px",
-  "& h1":{
-    fontWeight:"700",
-    marginBlockEnd:"0rem",
+  "& h1": {
+    fontWeight: "700",
+    marginBlockEnd: "0.5rem",
   }
 });
 
 const Badge = styled.div({
   display: "inline-flex",
   alignItems: "center",
-  gap: "0.5rem",
-  padding: "0.5rem 0.875rem",
-  borderRadius: "999px",
-  background: "#F3F6FF",
-  fontSize: "0.875rem",
+  gap: "0.625rem",
   fontWeight: 600,
-  marginBottom: "1.5rem",
+  marginBottom: "2.5rem",
+  "& .icon": {
+    height: "1.5rem",
+    width: "1.5rem",
+    "& svg": {
+      height: "100%",
+      width: "100%",
+    }
+  },
+  "& .new": {
+    background: "linear-gradient(89.97deg, #FFA12F 0.03%, #5433F8 88.44%)",
+    borderRadius: "2.5rem",
+    color: "#fff",
+    padding: "0.4rem 1.25rem",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "0.313rem",
+    "& span": {
+      height: "1rem",
+      width: "1rem",
+      display: "flex",
+      alignItems: "center",
+      "& svg": {
+        height: "100%",
+        width: "100%",
+      }
+    }
+  }
 });
 
 const Heading = styled.div({
@@ -51,17 +75,26 @@ const GradientTextWrap = styled.span({
   height: "3.75rem",
   overflow: "hidden",
   verticalAlign: "bottom",
+  "& .swiper": {
+    height: "100%",
+  },
+  "& .swiper-slide": {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 
   "@media (max-width: 768px)": {
     height: "2.75rem",
   },
-})
+});
+
 
 const GradientText = styled.div({
   background: "linear-gradient(90deg, #FF6600 0%, #7B60FF 106.8%)",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
-  marginBlockEnd:"1rem",
+  marginBlockEnd: "1rem",
 });
 
 
@@ -70,6 +103,7 @@ const ButtonGroup = styled.div({
   justifyContent: "center",
   gap: "1.25rem",
   flexWrap: "wrap",
+  marginBlockStart: "2.5rem",
 })
 
 const PrimaryButton = styled.button({
@@ -128,8 +162,26 @@ export default function Banner() {
       <div className="container">
         <Wrapper>
           <Badge>
-            ⚙️ Built for Complex Shift-Based Operations
-            <span style={{ color: "#6B5CFF" }}>New</span>
+            <div className="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M17.1742 8.963C16.7552 8.249 15.8352 8.009 15.1212 8.429L14.6522 8.704C14.3292 8.471 13.9422 8.3 13.4992 8.184V7.5C13.4992 6.672 12.8272 6 11.9992 6C11.1712 6 10.4992 6.672 10.4992 7.5V8.184C10.0562 8.3 9.66924 8.47 9.34624 8.704L8.87724 8.429C8.16324 8.01 7.24324 8.249 6.82424 8.963C6.40524 9.677 6.64424 10.597 7.35824 11.016L8.02724 11.409C8.00924 11.597 7.99824 11.793 7.99824 12.001C7.99824 12.209 8.00924 12.404 8.02724 12.593L7.35824 12.986C6.64424 13.405 6.40424 14.325 6.82424 15.039C7.24324 15.753 8.16324 15.993 8.87724 15.573L9.34624 15.298C9.66924 15.531 10.0562 15.702 10.4992 15.818V16.502C10.4992 17.33 11.1712 18.002 11.9992 18.002C12.8272 18.002 13.4992 17.33 13.4992 16.502V15.818C13.9422 15.702 14.3292 15.532 14.6522 15.298L15.1212 15.573C15.8352 15.992 16.7552 15.753 17.1742 15.039C17.5932 14.325 17.3542 13.405 16.6402 12.986L15.9712 12.593C15.9892 12.405 16.0002 12.209 16.0002 12.001C16.0002 11.793 15.9892 11.598 15.9712 11.409L16.6402 11.016C17.3542 10.597 17.5942 9.677 17.1742 8.963ZM12.0002 13.5C10.8082 13.5 10.5002 13.192 10.5002 12C10.5002 10.808 10.8082 10.5 12.0002 10.5C13.1922 10.5 13.5002 10.808 13.5002 12C13.5002 13.192 13.1922 13.5 12.0002 13.5ZM22.9952 12.531C22.8462 19.771 19.4542 23 12.0002 23C8.50724 23 6.00324 22.31 4.22624 20.864L2.88824 22.202C2.61524 22.475 2.21024 22.569 1.84824 22.448C1.48324 22.326 1.21824 22.008 1.16324 21.626C0.946238 20.1 0.946238 18.552 1.16324 17.027C1.22724 16.58 1.57824 16.228 2.02624 16.164C2.78924 16.055 3.55824 16 4.32624 16C5.09424 16 5.86424 16.055 6.62724 16.164C7.00824 16.218 7.32624 16.484 7.44724 16.849C7.56924 17.214 7.47424 17.617 7.20224 17.889L6.36924 18.722C7.60024 19.585 9.41724 20.001 11.9992 20.001C17.7872 20.001 19.8792 18.03 19.9952 12.47C20.0112 11.642 20.7012 10.983 21.5262 11.002C22.3542 11.019 23.0112 11.704 22.9942 12.533L22.9952 12.531ZM1.00524 11.469C1.15524 4.229 4.54624 1 12.0002 1C15.4822 1 18.0022 1.691 19.7762 3.134L21.1122 1.798C21.3852 1.525 21.7902 1.431 22.1532 1.552C22.5182 1.674 22.7832 1.992 22.8382 2.374C23.0552 3.9 23.0552 5.448 22.8382 6.974C22.7742 7.421 22.4232 7.773 21.9752 7.837C21.2122 7.946 20.4432 8.001 19.6752 8.001C18.9072 8.001 18.1372 7.946 17.3742 7.837C16.9932 7.783 16.6752 7.517 16.5542 7.152C16.4322 6.787 16.5272 6.384 16.7992 6.112L17.6402 5.271C16.6562 4.586 15.0022 4.001 12.0012 4.001C6.21324 4.001 4.12124 5.972 4.00524 11.532C3.98824 12.349 3.32024 13.001 2.50624 13.001C1.66724 13.001 0.988238 12.31 1.00624 11.47L1.00524 11.469Z" fill="#476FFF" />
+              </svg>
+            </div>
+            Built for Complex Shift-Based Operations
+            <div className="new">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="11" viewBox="0 0 12 11" fill="none">
+                  <path d="M-2.40413e-07 5.5L4.43022 4.06104L6 6.91406e-07L7.56978 4.06104L12 5.5L7.56978 6.93896L6 11L4.43022 6.93896L-2.40413e-07 5.5Z" fill="url(#paint0_linear_3927_989)" />
+                  <defs>
+                    <linearGradient id="paint0_linear_3927_989" x1="3.75" y1="3.20833" x2="7.15548" y2="7.17107" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#9EECFF" />
+                      <stop offset="1" stop-color="#FFFDCE" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </span>
+              New
+            </div>
           </Badge>
 
           <Heading>
@@ -144,13 +196,13 @@ export default function Banner() {
                   delay: 1800,
                   disableOnInteraction: false,
                 }}
-                speed={600}
+                speed={800}
                 allowTouchMove={false}
               >
                 {[
                   "Shift-Based Industries",
-                  "Shift-Based Performance",
-                  "Shift-Based Solutions",
+                  "Redefining Workforce Fairness",
+                  "Productivity Engine",
                 ].map((text, index) => (
                   <SwiperSlide key={index}>
                     <GradientText>{text}</GradientText>
