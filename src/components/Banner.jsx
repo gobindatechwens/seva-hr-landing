@@ -4,13 +4,16 @@ import React from "react"
 import styled from "styled-components"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay } from "swiper/modules"
+import Image from 'next/image';
+import BannerLeftImg from "../assets/bannerLeftImg.png";
+import BannerRightImg from "../assets/bannerRightImg.png";
+
 
 import "swiper/css"
 
 const Section = styled.section({
-  paddingBlock: "10rem 5rem",
+  paddingBlock: "10rem 2rem",
 });
-
 const Wrapper = styled.div({
   textAlign: "center",
   margin: "0 auto",
@@ -20,7 +23,6 @@ const Wrapper = styled.div({
     marginBlockEnd: "0.5rem",
   }
 });
-
 const Badge = styled.div({
   display: "inline-flex",
   alignItems: "center",
@@ -56,7 +58,6 @@ const Badge = styled.div({
     }
   }
 });
-
 const Heading = styled.div({
   fontSize: "3.25rem",
   fontWeight: 800,
@@ -67,9 +68,6 @@ const Heading = styled.div({
     fontSize: "2.25rem",
   },
 });
-
-
-
 const GradientTextWrap = styled.span({
   display: "inline-block",
   height: "3.75rem",
@@ -88,24 +86,19 @@ const GradientTextWrap = styled.span({
     height: "2.75rem",
   },
 });
-
-
 const GradientText = styled.div({
   background: "linear-gradient(90deg, #FF6600 0%, #7B60FF 106.8%)",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
   marginBlockEnd: "1rem",
 });
-
-
 const ButtonGroup = styled.div({
   display: "flex",
   justifyContent: "center",
   gap: "1.25rem",
   flexWrap: "wrap",
   marginBlockStart: "2.5rem",
-})
-
+});
 const PrimaryButton = styled.button({
   padding: "0.875rem 1.75rem",
   borderRadius: "0.875rem",
@@ -134,7 +127,6 @@ const PrimaryButton = styled.button({
     boxShadow: "0 12px 30px rgba(70,0,182,.35)",
   },
 });
-
 const SecondaryButton = styled.button({
   padding: "0.875rem 1.75rem",
   borderRadius: "0.875rem",
@@ -163,11 +155,65 @@ const SecondaryButton = styled.button({
     borderColor: "rgb(161, 97, 176, 0.2)",
   },
 });
+const BannerLeftImage = styled.div({
+  position: "absolute",
+  left: "2rem",
+  top: "50%",
+  transform: "translateY(-50%)",
+  height: "19rem",
+  width: "auto",
+  animation: "leftFloat 6s ease-in-out infinite",
+  "@keyframes leftFloat": {
+    "0%": {
+      transform: "translateY(-50%) translateX(0)",
+    },
+    "50%": {
+      transform: "translateY(calc(-50% - 1.5rem))",
+    },
+    "100%": {
+      transform: "translateY(-50%) translateX(0)",
+    },
+  },
+  "& img": {
+    height: "100% !important",
+    width: "100% !important",
+    objectFit: "contain",
+  },
+});
+
+const BannerRightImage = styled.div({
+  position: "absolute",
+  right: "0",
+  top: "50%",
+  transform: "translateY(-50%)",
+  height: "23rem",
+  width: "auto",
+  animation: "rightFloat 5s ease-in-out infinite",
+  animationDelay: "0.8s",
+  "@keyframes rightFloat": {
+    "0%": {
+      transform: "translateY(-50%) translateX(0)",
+    },
+    "50%": {
+      transform: "translateY(calc(-50% - 1.5rem))",
+    },
+    "100%": {
+      transform: "translateY(-50%) translateX(0)",
+    },
+  },
+  "& img": {
+    height: "100% !important",
+    width: "100% !important",
+    objectFit: "contain",
+  },
+});
+
+
 
 export default function Banner() {
   return (
     <Section>
-      <div className="container">
+      <div className="container" style={{ position: "relative" }}>
         <Wrapper>
           <Badge>
             <div className="icon">
@@ -249,6 +295,13 @@ export default function Banner() {
             </SecondaryButton>
           </ButtonGroup>
         </Wrapper>
+        <BannerLeftImage>
+          <Image src={BannerLeftImg} alt='banner-left-image' />
+        </BannerLeftImage>
+        <BannerRightImage>
+          <Image src={BannerRightImg} alt='banner-right-image' />
+        </BannerRightImage>
+
       </div>
     </Section>
   )

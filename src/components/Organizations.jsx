@@ -38,6 +38,22 @@ const Left = styled.div({
       fontSize: "1rem",
     },
   },
+  "& div": {
+    display: "flex",
+    alignItems: "center",
+    gap:"0.5rem",
+    marginBlockEnd:"0.5rem",
+    "& span": {
+      height: "1.5rem",
+      width: "1.5rem",
+      display: "flex",
+      alignItems: "center",
+      "& img": {
+        height: "100% !important",
+        width: "100% !important"
+      }
+    },
+  }
 });
 
 const BrandLogo = styled.div({
@@ -83,21 +99,23 @@ export default function Organizations() {
       <div className="container">
         <SectionRow>
           <Left>
-            <span>
-              <Image src={Star} alt="star-icon"/>
-            </span>
-            <span>
-              <Image src={Star} alt="star-icon"/>
-            </span>
-            <span>
-              <Image src={Star} alt="star-icon"/>
-            </span>
-            <span>
-              <Image src={Star} alt="star-icon"/>
-            </span>
-            <span>
-              <Image src={Star} alt="star-icon"/>
-            </span>
+            <div>
+              <span>
+                <Image src={Star} alt="star-icon" />
+              </span>
+              <span>
+                <Image src={Star} alt="star-icon" />
+              </span>
+              <span>
+                <Image src={Star} alt="star-icon" />
+              </span>
+              <span>
+                <Image src={Star} alt="star-icon" />
+              </span>
+              <span>
+                <Image src={Star} alt="star-icon" />
+              </span>
+            </div>
             <h2>Trusted by 15+ organizations</h2>
           </Left>
           <Right>

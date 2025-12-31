@@ -4,7 +4,9 @@ import styled from "styled-components"
 import TextureBg from "../assets/TextureBg.png"
 const Section = styled.section({
   paddingBlockEnd: "3.5rem",
-})
+  position:"relative",
+  overflowX:"hidden",
+});
 
 const CtaWrap = styled.div({
   borderRadius: "1.75rem",
@@ -24,7 +26,7 @@ const CtaWrap = styled.div({
   "@media (max-width: 991px)": {
     padding: "2rem",
   },
-})
+});
 
 const SectionRow = styled.div({
   display: "flex",
@@ -33,7 +35,7 @@ const SectionRow = styled.div({
   "@media (max-width: 767px)": {
     flexDirection: "column",
   },
-})
+});
 
 const Left = styled.div({
   width: "45%",
@@ -66,7 +68,7 @@ const Left = styled.div({
     gap: "0.5rem",
     justifyContent: "center",
   },
-})
+});
 
 const Right = styled.div({
   width: "55%",
@@ -80,7 +82,7 @@ const Right = styled.div({
   "@media (max-width: 767px)": {
     width: "100%",
   },
-})
+});
 
 const FeaturePill = styled.div({
   display: "flex",
@@ -105,7 +107,7 @@ const FeaturePill = styled.div({
     alignItems: "center",
     justifyContent: "center",
   },
-})
+});
 
 export default function Getstarted() {
   return (
