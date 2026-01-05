@@ -29,10 +29,10 @@ export const metadata = {
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", sizes: "any" },
     ],
     shortcut: "/favicon.svg",
-    apple: "/favicon.ico",
+    apple: "/favicon.svg",
   },
   openGraph: {
     title: "SevaHR - Modern HRMS Platform for Indian Businesses",
@@ -53,9 +53,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${sourceSansPro.variable} ${inter.variable}`}>
         <StyledComponentsRegistry>
-          <Header/>
+          <Header />
           {children}
-          <Footer/>
+          <Footer />
         </StyledComponentsRegistry>
       </body>
     </html>
