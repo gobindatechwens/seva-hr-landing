@@ -1,8 +1,9 @@
 import { Source_Sans_3, Inter } from "next/font/google";
-import '../scss/global.scss';  
+import '../scss/global.scss';
 import "./globals.css";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
+import StyledComponentsRegistry from "@/lib/registry";
 
 const sourceSansPro = Source_Sans_3({
   variable: "--font-source-sans",
@@ -29,9 +30,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${sourceSansPro.variable} ${inter.variable}`}>
-        <Header/>
-        {children}
-        <Footer/>
+        <StyledComponentsRegistry>
+          <Header/>
+          {children}
+          <Footer/>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
