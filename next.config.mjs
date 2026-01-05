@@ -2,6 +2,8 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
+  output: 'export',
+  distDir: 'build',
 };
 
 export default nextConfig;
