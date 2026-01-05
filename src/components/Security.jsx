@@ -1,575 +1,735 @@
 "use client"
-import React, { useEffect, useRef } from "react"
+import React from "react"
 import styled from "styled-components"
-import TextureBg from "../assets/TextureBg.png"
-import Image from "next/image"
-import brand from "../assets/image 4.svg"
-import packlock from "../assets/padlock-check 1.svg"
-import cirtificate from "../assets/Vector.svg"
-import bojroBidduyt from "../assets/bojro-bidduyt.svg"
-import BrandIconName from "../assets/brand-icon-name.svg"
-
-const securityData = [
-  {
-    title: "ISO 27001 Ready",
-    desc: "Following international standards for information security management",
-    icon: cirtificate,
-  },
-  {
-    title: "AES-256 Encryption",
-    desc: "Military-grade encryption for all your sensitive data",
-    icon: cirtificate,
-  },
-  {
-    title: "Secure Document Vault",
-    desc: "Protected storage for employee documents and records",
-    icon: cirtificate,
-  },
-  {
-    title: "Role-based Access",
-    desc: "Controlled access ensuring data visibility by role",
-    icon: cirtificate,
-  },
-]
 
 const Section = styled.section({
-  paddingBlock: "3.5rem",
-  "& .centerized": {
-    display: "flex",
-    justifyContent: "center",
-  },
-  "& h3": {
-    fontWeight: 600,
-    lineHeight: 1.3,
-    color: '#000',
-    marginBlockEnd: "0.625rem",
-    borderRadius: '1.875rem',
-    background: 'linear-gradient(311.72deg, #B9D9FF 30.95%, #FFF9CA 70.45%)',
-    padding: '0.625rem 1.25rem 0.625rem 2.8rem',
-    display: 'inline-block',
-    position: 'relative',
-    '&:after': {
-      content: "''",
-      position: 'absolute',
-      height: '1.313rem',
-      width: '1rem',
-      left: '1.2rem',
-      top: '50%',
-      transform: "translateY(-50%)",
-      backgroundImage: `url(${bojroBidduyt.src})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: "contain",
-      backgroundPosition: "center",
-    }
-  },
-  "& h2": {
-    textAlign: 'center',
-    marginBlockEnd: '0.938rem',
-    '& span': {
-      background: 'linear-gradient(90deg, #FF6600 0%, #7B60FF 80.8%)',
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      backgroundClip: 'text',
-      color: 'transparent',
-    }
-  },
-  "& p": {
-    textAlign: 'center',
-  }
-})
-const SectionRow = styled.div({
-  display: "flex",
-  alignItems: "flex-start",
-  justifyContent: "space-between",
-  marginBlockStart: "2.625rem",
+  paddingBlock: "5rem 6rem",
+  position: "relative",
   overflow: "hidden",
-  "@media (max-width: 767px)": {
-    flexDirection: "column",
+  background: "linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 50%, #F0F4FF 100%)",
+  "&::before": {
+    content: '""',
+    position: "absolute",
+    top: "10%",
+    left: "-10%",
+    width: "35rem",
+    height: "35rem",
+    borderRadius: "50%",
+    background: "radial-gradient(circle, rgba(71, 111, 255, 0.08) 0%, transparent 60%)",
+    pointerEvents: "none",
+  },
+  "&::after": {
+    content: '""',
+    position: "absolute",
+    bottom: "5%",
+    right: "-15%",
+    width: "40rem",
+    height: "40rem",
+    borderRadius: "50%",
+    background: "radial-gradient(circle, rgba(123, 96, 255, 0.06) 0%, transparent 60%)",
+    pointerEvents: "none",
   },
 })
 
-const Left = styled.div({
-  width: "36%",
-  opacity: 0,
-  transform: "translateX(-3rem)",
-  transition: "all 0.8s ease",
-  "@media (max-width: 767px)": {
-    width: "100%",
-  },
-  "&.in-view": {
-    opacity: 1,
-    transform: "translateX(0)",
-  },
+const Container = styled.div({
+  position: "relative",
+  zIndex: 1,
 })
-const CardListHeading = styled.div({
-  background: 'linear-gradient(180deg, #476FFF 1.77%, #4600B6 71.94%)',
-  WebkitBackgroundClip: 'text',
-  WebkitTextFillColor: 'transparent',
-  backgroundClip: 'text',
-  color: 'transparent',
-  fontSize: "1.125rem",
-  fontWeight: "700",
-  display: "flex",
+
+// Floating accent shapes
+const FloatingShape = styled.div(({ $top, $left, $right, $bottom, $size, $color, $delay }) => ({
+  position: "absolute",
+  width: $size || "3rem",
+  height: $size || "3rem",
+  borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70%",
+  background: $color || "linear-gradient(135deg, rgba(71, 111, 255, 0.1) 0%, rgba(123, 96, 255, 0.1) 100%)",
+  top: $top,
+  left: $left,
+  right: $right,
+  bottom: $bottom,
+  animation: `float 6s ease-in-out infinite`,
+  animationDelay: $delay || "0s",
+  "@keyframes float": {
+    "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+    "50%": { transform: "translateY(-1rem) rotate(10deg)" },
+  },
+  "@media (max-width: 991px)": {
+    display: "none",
+  },
+}))
+
+const HeaderSection = styled.div({
+  textAlign: "center",
+  marginBlockEnd: "4rem",
+  position: "relative",
+})
+
+const Badge = styled.div({
+  display: "inline-flex",
+  alignItems: "center",
   gap: "0.5rem",
+  padding: "0.625rem 1.25rem",
+  borderRadius: "3rem",
+  background: "linear-gradient(135deg, #EEF2FF 0%, #FDF4FF 100%)",
+  border: "1px solid rgba(71, 111, 255, 0.15)",
   marginBlockEnd: "1.5rem",
-  "& div": {
-    height: "1.5rem",
-    width: "1.5rem",
-    "& img": {
-      height: "100% !important",
-      width: "100%  !important",
-    }
-  }
-})
-const CardList = styled.ul({
-  listStyle: "none",
-  padding: 0,
-  margin: 0,
-  display: "flex",
-  flexDirection: "column",
-  gap: "2rem",
-  "& li": {
-    padding: "1.25rem 1.5rem",
-    borderRadius: "1.25rem",
-    background: "#fff",
-    border: "1px solid #D5D3FF",
-    boxShadow: "0px 2px 10px 0px #00000012",
-    display: "flex",
-    flexDirection: "column",
-    gap: ".5rem",
-    transition: "background 0.4s ease",
-    "& p": {
-      textAlign: "start",
-      transition: "all 0.4s ease",
-      transform: "translateY(0)",
-    },
-    "&:hover": {
-      background:"linear-gradient(151.19deg, #476FFF 1.77%, #4600B6 71.94%)",
-    },
-    "&:hover h4": {
-      color: "#fff",
-      transform: "translateX(-2rem)",
-    },
-    "&:hover p": {
-      color: "#fff",
-      transform: "translateY(-0.375rem)",
-    },
-    "&:hover .HeaderRow div": {
-      opacity: 0,
-      transform: "translateX(-1.5rem)",
-    },
+  boxShadow: "0 4px 15px rgba(71, 111, 255, 0.08)",
+  "& svg": {
+    width: "1.125rem",
+    height: "1.125rem",
   },
-});
-
-
-const HeaderRow = styled.div({
-  display: "flex",
-  alignItems: "center",
-  gap: ".75rem",
-  "& div": {
-    width: "1.438rem",
-    height: "1.75rem",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "start",
-    flexShrink: 0,
-    transition: "all 0.4s ease",
-    "& img": {
-      height: "100% !important",
-      width: "100% !important",
-    }
-  },
-  "& h4": {
-    marginBlockEnd: "0rem",
-    fontWeight: "700",
-    transition: "all 0.4s ease",
-    transform: "translateX(0)",
-  }
-});
-
-
-export const Right = styled.div({
-  width: "56%",
-  opacity: 0,
-  transform: "translateX(3rem)",
-  transition: "all 0.8s ease",
-  "@media (max-width: 767px)": {
-    width: "100%",
-  },
-  "&.in-view": {
-    opacity: 1,
-    transform: "translateX(0)",
-  },
-});
-
-export const FloatingWrap = styled("ul")({
-  listStyle: "none",
-  padding: 0,
-  margin: "3rem 0rem 0rem 0rem",
-  display: "flex",
-  gap: "0.688rem",
-  alignItems: "center",
-  "@keyframes floatUp": {
-    "0%": { transform: "translateY(0)" },
-    "50%": { transform: "translateY(-16px)" },
-    "100%": { transform: "translateY(0)" },
-  },
-
-  "@keyframes floatDown": {
-    "0%": { transform: "translateY(0)" },
-    "50%": { transform: "translateY(16px)" },
-    "100%": { transform: "translateY(0)" },
-  },
-
-  "& li": {
-    animationDuration: "4s",
-    animationTimingFunction: "ease-in-out",
-    animationIterationCount: "infinite",
-    minWidth: "8.75rem",
-    padding: "1rem 1.5rem",
-    borderRadius: "1.125rem",
-    background: "#fff",
-    boxShadow: "0 12px 30px rgba(0,0,0,0.08)",
-    textAlign: "center",
-    display: "flex",
-    flexDirection: "column",
-    gap: ".25rem",
-    "& h5": {
-      margin: 0,
-      fontWeight: 700,
-      textAlign: "start",
-    },
-    "& p": {
-      margin: 0,
-      fontSize: "0.813rem",
-      textAlign: "start",
-    },
-    "&:nth-child(odd)": {
-      animationName: "floatUp",
-      marginBlockEnd: "-3rem",
-    },
-    "&:nth-child(even)": {
-      animationName: "floatDown",
-      marginBlockStart: "-3rem",
-    },
-    "&:last-child": {
-      background: "linear-gradient(135deg, #FF6A00, #7C3AED)",
-      flexDirection: "row",
-      gap: "0.8rem",
-      "& span": {
-        widows: "1.938rem",
-        height: "2.25",
-        display: "flex",
-        justifyContent: "start",
-        alignItems: "center",
-      }
-    },
-  },
-})
-export const Brand = styled.div({
-  margin: "6rem 0rem 1rem 0rem",
-  width: "8.75rem",
-  height: "auto",
-  "& img": {
-    height: "100%",
-    width: "100%",
-    objectFit: "contain",
-  }
-})
-export const Detailslist = styled.ul({
-  listStyle: "none",
-  margin: "0",
-  padding: 0,
-  display: "flex",
-  gap: "1rem",
-  flexWrap: "wrap",
-  "& li": {
-    width: "calc((100% - 1rem) / 2)",
-    padding: "0.125rem",
-    borderRadius: "1.125rem",
-    background: "linear-gradient(270deg, #9ED5FF 0%, #FFFFFF 100%)",
-    "& > div": {
-      height: "100%",
-      width: "100%",
-      padding: "1rem 1.25rem",
-      borderRadius: "1rem",
-      backgroundRepeat: "repeat",
-      "& p": {
-        marginBlockEnd: "0.5rem",
-        textAlign: "start",
-      },
-      "& h4": {
-        marginBlockEnd: "0.5rem",
-        fontWeight: "700",
-        fontSize: "1.875rem",
-      },
-      "& h6": {
-        marginBlockEnd: "0rem",
-        textAlign: "end",
-        fontWeight: "700",
-      }
-    },
-
-    /* ===== 1st card ===== */
-    "&:nth-child(1)": {
-      background: "linear-gradient(107.86deg, #FFFFFF -1.72%, #81C8FF 92.86%)",
-      "& > div": {
-        backgroundImage: `
-        linear-gradient(117deg, rgba(250, 244, 212, 0.86) 0%, rgba(201, 229, 255, 0.87) 100%),
-        url(${TextureBg.src})
-      `,
-      },
-    },
-    /* ===== 2nd card ===== */
-    "&:nth-child(2)": {
-      background: "linear-gradient(107.86deg, #FFFFFF -1.72%, #FFB99D 92.86%)",
-      "& > div": {
-        backgroundImage: `
-        linear-gradient(117deg,rgba(221, 250, 239, 0.86) 0%, rgba(242, 212, 254, 0.87) 100%),
-        url(${TextureBg.src})
-      `,
-      },
-    },
-
-    /* ===== 3rd card ===== */
-    "&:nth-child(3)": {
-      background: "linear-gradient(107.86deg, #FFFFFF -1.72%, #C0AFFF 92.86%)",
-      "& > div": {
-        backgroundImage: `
-        linear-gradient(117deg,rgba(242, 212, 254, 0.86) 0%, rgba(215, 253, 207, 0.87) 100%),
-        url(${TextureBg.src})
-      `,
-      },
-    },
-
-    /* ===== 4th card ===== */
-    "&:nth-child(4)": {
-      background: "linear-gradient(107.86deg, #FFFFFF -1.72%, #C7FFCE 92.86%)",
-      "& > div": {
-        backgroundImage: `
-        linear-gradient(117deg,rgba(211, 242, 249, 0.86) 0%, rgba(250, 218, 197, 0.87) 100%),
-        url(${TextureBg.src})
-      `,
-      },
-    },
-  }
-})
-export const Accuracy = styled.div({
-  "& h4": {
-    fontSize: "1.688rem",
-    marginBlockEnd: "0.5rem",
-  },
-  "& p": {
-    textAlign: "start",
-  }
-})
-export const AccuracyList = styled.ul({
-  listStyle: "none",
-  padding: 0,
-  margin: "1.5rem 0 0.875rem 0",
-  display: "flex",
-  gap: "1.25rem",
-});
-
-export const AccuracyItem = styled.li({
-  width: "calc((100% - 1.25rem) / 2)",
-  display: "flex",
-  flexDirection: "column",
-  gap: "0.375rem",
-});
-
-export const AccuracyHeader = styled.div({
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
   "& span": {
     fontSize: "0.875rem",
     fontWeight: 600,
-    flex: "0 0 auto",
-    marginInlineEnd: "0.5rem",
+    background: "linear-gradient(90deg, #476FFF 0%, #7B60FF 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
   },
-});
+})
 
-export const Value = styled.div({
-  fontSize: "0.875rem",
-  fontWeight: 600,
-  textAlign: "end",
-});
-export const AccuracyTrack = styled.div({
-  width: "100%",
-  height: "0.375rem",
-  background: "#E6E6E6",
+const Title = styled.h2({
+  fontSize: "2.75rem",
+  fontWeight: 800,
+  color: "#1a1a1a",
+  lineHeight: 1.15,
+  marginBlockEnd: "1rem",
+  "& span": {
+    display: "block",
+    background: "linear-gradient(90deg, #476FFF 0%, #7B60FF 50%, #FF6600 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
+  },
+  "@media (max-width: 768px)": {
+    fontSize: "2rem",
+  },
+})
+
+const Subtitle = styled.p({
+  fontSize: "1.125rem",
+  color: "#64748B",
+  maxWidth: "38rem",
+  margin: "0 auto",
+  lineHeight: 1.7,
+})
+
+// Main content with asymmetric layout
+const MainGrid = styled.div({
+  display: "grid",
+  gridTemplateColumns: "1.1fr 0.9fr",
+  gap: "4rem",
+  alignItems: "start",
+  "@media (max-width: 991px)": {
+    gridTemplateColumns: "1fr",
+    gap: "3rem",
+  },
+})
+
+// Left side - staggered cards
+const LeftContent = styled.div({
+  position: "relative",
+})
+
+const CertRow = styled.div({
+  display: "flex",
+  gap: "1rem",
+  marginBlockEnd: "2rem",
+  flexWrap: "wrap",
+})
+
+const CertBadge = styled.div({
+  display: "flex",
+  alignItems: "center",
+  gap: "0.75rem",
+  padding: "0.875rem 1.25rem",
+  background: "#fff",
   borderRadius: "1rem",
+  border: "1px solid rgba(16, 185, 129, 0.15)",
+  boxShadow: "0 4px 20px rgba(16, 185, 129, 0.08)",
+  transition: "all 0.3s ease",
+  "&:hover": {
+    transform: "translateY(-3px)",
+    boxShadow: "0 8px 30px rgba(16, 185, 129, 0.15)",
+  },
+})
+
+const CertIcon = styled.div({
+  width: "2.25rem",
+  height: "2.25rem",
+  borderRadius: "0.75rem",
+  background: "linear-gradient(135deg, #10B981 0%, #059669 100%)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  "& svg": {
+    width: "1.125rem",
+    height: "1.125rem",
+    color: "#fff",
+  },
+})
+
+const CertText = styled.div({
+  "& p": {
+    margin: 0,
+    fontSize: "0.875rem",
+    fontWeight: 700,
+    color: "#1a1a1a",
+  },
+  "& span": {
+    fontSize: "0.75rem",
+    color: "#64748B",
+    fontWeight: 500,
+  },
+})
+
+// Feature cards with stagger effect
+const FeatureStack = styled.div({
+  display: "flex",
+  flexDirection: "column",
+  gap: "1rem",
+})
+
+const FeatureCard = styled.div(({ $offset }) => ({
+  display: "flex",
+  alignItems: "center",
+  gap: "1.25rem",
+  padding: "1.5rem",
+  background: "#fff",
+  borderRadius: "1.25rem",
+  border: "1px solid rgba(71, 111, 255, 0.08)",
+  boxShadow: "0 4px 24px rgba(0, 0, 0, 0.04)",
+  marginLeft: $offset || "0",
+  transition: "all 0.4s ease",
+  position: "relative",
+  "&::before": {
+    content: '""',
+    position: "absolute",
+    inset: 0,
+    borderRadius: "inherit",
+    padding: "2px",
+    background: "linear-gradient(135deg, rgba(71, 111, 255, 0.2) 0%, rgba(123, 96, 255, 0.2) 100%)",
+    WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+    WebkitMaskComposite: "xor",
+    maskComposite: "exclude",
+    opacity: 0,
+    transition: "opacity 0.3s ease",
+  },
+  "&:hover": {
+    transform: "translateX(0.5rem) translateY(-3px)",
+    boxShadow: "0 12px 40px rgba(71, 111, 255, 0.12)",
+    "&::before": {
+      opacity: 1,
+    },
+  },
+  "@media (max-width: 768px)": {
+    marginLeft: "0",
+  },
+}))
+
+const FeatureIcon = styled.div({
+  width: "3.25rem",
+  height: "3.25rem",
+  borderRadius: "1rem",
+  background: "linear-gradient(135deg, #476FFF 0%, #7B60FF 100%)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  flexShrink: 0,
+  "& svg": {
+    width: "1.5rem",
+    height: "1.5rem",
+    color: "#fff",
+  },
+})
+
+const FeatureContent = styled.div({
+  flex: 1,
+  "& h4": {
+    fontSize: "1.125rem",
+    fontWeight: 700,
+    color: "#1a1a1a",
+    marginBlockEnd: "0.25rem",
+  },
+  "& p": {
+    fontSize: "0.875rem",
+    color: "#64748B",
+    margin: 0,
+    lineHeight: 1.5,
+  },
+})
+
+const FeatureCheck = styled.div({
+  width: "1.75rem",
+  height: "1.75rem",
+  borderRadius: "50%",
+  background: "linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  "& svg": {
+    width: "1rem",
+    height: "1rem",
+    color: "#10B981",
+  },
+})
+
+// Right side - visual showcase
+const RightContent = styled.div({
+  position: "relative",
+})
+
+// Shield visual with animated rings
+const ShieldSection = styled.div({
+  position: "relative",
+  padding: "2rem",
+  marginBlockEnd: "2rem",
+})
+
+const ShieldVisual = styled.div({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  position: "relative",
+  height: "16rem",
+})
+
+const AnimatedRing = styled.div(({ $size, $delay, $opacity }) => ({
+  position: "absolute",
+  width: $size,
+  height: $size,
+  borderRadius: "50%",
+  border: `2px solid rgba(71, 111, 255, ${$opacity || 0.1})`,
+  animation: "pulse 3s ease-in-out infinite",
+  animationDelay: $delay || "0s",
+  "@keyframes pulse": {
+    "0%, 100%": { transform: "scale(1)", opacity: 1 },
+    "50%": { transform: "scale(1.05)", opacity: 0.7 },
+  },
+}))
+
+const ShieldCore = styled.div({
+  position: "relative",
+  zIndex: 2,
+  width: "6rem",
+  height: "7rem",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  "& svg": {
+    width: "100%",
+    height: "100%",
+    filter: "drop-shadow(0 10px 30px rgba(71, 111, 255, 0.3))",
+  },
+})
+
+// Stats floating around shield
+const FloatingStat = styled.div(({ $top, $left, $right, $bottom }) => ({
+  position: "absolute",
+  top: $top,
+  left: $left,
+  right: $right,
+  bottom: $bottom,
+  padding: "0.875rem 1.25rem",
+  background: "#fff",
+  borderRadius: "1rem",
+  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.08)",
+  border: "1px solid rgba(71, 111, 255, 0.1)",
+  animation: "floatStat 4s ease-in-out infinite",
+  "@keyframes floatStat": {
+    "0%, 100%": { transform: "translateY(0)" },
+    "50%": { transform: "translateY(-0.5rem)" },
+  },
+  "& .value": {
+    fontSize: "1.5rem",
+    fontWeight: 800,
+    background: "linear-gradient(135deg, #476FFF 0%, #7B60FF 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+  },
+  "& .label": {
+    fontSize: "0.75rem",
+    color: "#64748B",
+    fontWeight: 500,
+  },
+  "@media (max-width: 575px)": {
+    display: "none",
+  },
+}))
+
+// Compliance section - horizontal scroll feel
+const ComplianceSection = styled.div({
+  background: "linear-gradient(135deg, #0F172A 0%, #1E293B 100%)",
+  borderRadius: "1.5rem",
+  padding: "2rem",
+  position: "relative",
   overflow: "hidden",
-});
+  "&::before": {
+    content: '""',
+    position: "absolute",
+    top: "0",
+    right: "0",
+    width: "15rem",
+    height: "15rem",
+    background: "radial-gradient(circle, rgba(71, 111, 255, 0.2) 0%, transparent 60%)",
+    pointerEvents: "none",
+  },
+})
 
-export const AccuracyFill = styled.div({
-  height: "100%",
-  width: "0%",
-  borderRadius: "1rem",
-  background: "linear-gradient(90deg, #5B2EFF 0%, #8F6BFF 100%)",
-  transition: "width 1.4s ease",
-});
+const ComplianceHeader = styled.div({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  marginBlockEnd: "1.25rem",
+  position: "relative",
+  zIndex: 1,
+  "& h4": {
+    fontSize: "1.125rem",
+    fontWeight: 700,
+    color: "#fff",
+    margin: 0,
+  },
+})
 
+const AutoBadge = styled.span({
+  display: "inline-flex",
+  alignItems: "center",
+  gap: "0.375rem",
+  padding: "0.5rem 0.875rem",
+  borderRadius: "2rem",
+  background: "rgba(16, 185, 129, 0.15)",
+  color: "#10B981",
+  fontSize: "0.75rem",
+  fontWeight: 600,
+  "& svg": {
+    width: "0.75rem",
+    height: "0.75rem",
+  },
+})
 
+const ComplianceTags = styled.div({
+  display: "flex",
+  flexWrap: "wrap",
+  gap: "0.625rem",
+  position: "relative",
+  zIndex: 1,
+})
 
+const Tag = styled.span({
+  padding: "0.625rem 1rem",
+  borderRadius: "0.75rem",
+  background: "rgba(255, 255, 255, 0.08)",
+  border: "1px solid rgba(255, 255, 255, 0.1)",
+  fontSize: "0.813rem",
+  color: "#fff",
+  fontWeight: 500,
+  display: "flex",
+  alignItems: "center",
+  gap: "0.5rem",
+  transition: "all 0.2s ease",
+  "&:hover": {
+    background: "rgba(255, 255, 255, 0.12)",
+    borderColor: "rgba(255, 255, 255, 0.2)",
+    transform: "translateY(-2px)",
+  },
+  "& svg": {
+    width: "0.875rem",
+    height: "0.875rem",
+    color: "#10B981",
+  },
+})
 
+// Bottom trust bar - full width
+const TrustBar = styled.div({
+  marginTop: "4rem",
+  padding: "1.5rem 2rem",
+  background: "#fff",
+  borderRadius: "1.25rem",
+  border: "1px solid rgba(71, 111, 255, 0.1)",
+  boxShadow: "0 4px 30px rgba(0, 0, 0, 0.04)",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  gap: "2rem",
+  flexWrap: "wrap",
+  "@media (max-width: 768px)": {
+    justifyContent: "center",
+    textAlign: "center",
+  },
+})
 
+const TrustItem = styled.div({
+  display: "flex",
+  alignItems: "center",
+  gap: "0.75rem",
+})
 
+const TrustIcon = styled.div({
+  width: "2.5rem",
+  height: "2.5rem",
+  borderRadius: "0.75rem",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  "& svg": {
+    width: "1.25rem",
+    height: "1.25rem",
+  },
+})
 
+const TrustText = styled.div({
+  "& p": {
+    margin: 0,
+    fontSize: "1rem",
+    fontWeight: 700,
+    color: "#1a1a1a",
+  },
+  "& span": {
+    fontSize: "0.75rem",
+    color: "#64748B",
+  },
+})
 
+const securityFeatures = [
+  {
+    title: "AES-256 Encryption",
+    desc: "Military-grade encryption protecting all data at rest and in transit",
+    icon: "lock",
+  },
+  {
+    title: "Role-Based Access Control",
+    desc: "Granular permissions ensuring right people access right data",
+    icon: "users",
+  },
+  {
+    title: "Secure Document Vault",
+    desc: "Encrypted storage for sensitive employee records and files",
+    icon: "folder",
+  },
+]
+
+const complianceItems = ["EPF Returns", "ESI Compliance", "TDS Filing", "Form 16", "PT & LWF", "Labour Laws"]
 
 export default function Security() {
-  const sectionRef = useRef(null);
-  const [accuracyVisible, setAccuracyVisible] = React.useState(false);
-
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target
-            .querySelectorAll(".animate")
-            .forEach(el => el.classList.add("in-view"));
-
-          setAccuracyVisible(true); // 👈 ADD THIS LINE HERE
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+  const getIcon = (type) => {
+    switch (type) {
+      case "lock":
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+          </svg>
+        )
+      case "users":
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+          </svg>
+        )
+      case "folder":
+        return (
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
+          </svg>
+        )
+      default:
+        return null
     }
-
-    return () => observer.disconnect();
-  }, []);
+  }
 
   return (
     <Section>
-      <div className="container">
-        <div className="centerized">
-          <h3>Enterprise Security</h3>
-        </div>
-        <h2>Your Data. <span>Fully Encrypted. Fully Compliant.</span></h2>
-        <p>Bank-level security meets statutory compliance automation. Your workforce data is safe, secure, and always audit-ready.</p>
-        <SectionRow ref={sectionRef}>
-          <Left className="animate">
-            <CardListHeading>
-              <div>
-                <Image src={packlock} alt="icon" width={100} height={100} />
-              </div>
-              Security Features
-            </CardListHeading>
-            <CardList>
-              {securityData?.map((item, index) => (
-                <li key={index}>
-                  <HeaderRow className="HeaderRow">
-                    <div>
-                      <Image src={item?.icon} alt="icon" width={100} height={100} />
-                    </div>
-                    <h4>{item?.title}</h4>
-                  </HeaderRow>
-                  <p>{item?.desc}</p>
-                </li>
-              ))}
-            </CardList>
-          </Left>
-          <Right className="animate">
-            <FloatingWrap>
-              <li>
-                <h5>15+</h5>
-                <p>Companies</p>
-              </li>
+      {/* Floating decorative shapes */}
+      <FloatingShape $top="15%" $left="5%" $size="4rem" $delay="0s" />
+      <FloatingShape $top="60%" $right="8%" $size="3rem" $color="linear-gradient(135deg, rgba(255, 102, 0, 0.1) 0%, rgba(255, 102, 0, 0.05) 100%)" $delay="1s" />
+      <FloatingShape $bottom="20%" $left="10%" $size="2.5rem" $delay="2s" />
 
-              <li>
-                <h5>5K+</h5>
-                <p>Employees</p>
-              </li>
+      <Container className="container">
+        <HeaderSection>
+          <Badge>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="#476FFF">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
+            <span>Enterprise-Grade Security</span>
+          </Badge>
+          <Title>
+            Your Data. Fully Protected.
+            <span>Fully Encrypted. Fully Compliant.</span>
+          </Title>
+          <Subtitle>
+            Bank-level security meets statutory compliance automation. Your workforce data is safe, secure, and always audit-ready.
+          </Subtitle>
+        </HeaderSection>
 
-              <li>
-                <h5>Cloud</h5>
-                <p>Based</p>
-              </li>
-
-              <li>
-                <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="31" height="37" viewBox="0 0 31 37" fill="none">
-                    <path d="M31 34.7359C31 35.5696 30.4213 36.2462 29.7083 36.2462H3.875C1.73858 36.2462 0 34.2133 0 31.7154V1.51026C0 0.676595 0.578667 0 1.29167 0C2.00467 0 2.58333 0.676595 2.58333 1.51026V31.7154C2.58333 32.5475 3.16329 33.2256 3.875 33.2256H29.7083C30.4213 33.2256 31 33.9022 31 34.7359ZM27.125 7.55128H21.9583C21.2453 7.55128 20.6667 8.22788 20.6667 9.06154C20.6667 9.8952 21.2453 10.5718 21.9583 10.5718H26.5605L20.2869 17.6806C19.8 18.2514 18.9487 18.2514 18.4618 17.6806C18.4088 17.6202 16.8614 16.3319 16.8614 16.3319C15.3915 14.7114 12.887 14.7718 11.4855 16.4089L5.56192 23.0752C5.04783 23.6536 5.03233 24.6096 5.52704 25.2107C5.7815 25.5188 6.11862 25.6744 6.45833 25.6744C6.78125 25.6744 7.10417 25.5339 7.35346 25.253L13.2951 18.5656C13.7821 17.9947 14.6333 17.9947 15.1202 18.5656C15.1732 18.626 16.7206 19.9142 16.7206 19.9142C18.1918 21.5363 20.6938 21.4789 22.0991 19.8327L28.4154 12.6741V18.1216C28.4154 18.9552 28.994 19.6318 29.707 19.6318C30.42 19.6318 30.9987 18.9552 30.9987 18.1216V12.0805C30.9987 9.58258 29.2601 7.54977 27.1237 7.54977L27.125 7.55128Z" fill="white" />
+        <MainGrid>
+          <LeftContent>
+            <CertRow>
+              <CertBadge>
+                <CertIcon>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                </span>
-                <div>
-                  <h5 className="text-white">60% Faster</h5>
-                  <p className="text-white">Processing</p>
-                </div>
+                </CertIcon>
+                <CertText>
+                  <p>ISO 27001</p>
+                  <span>Certified Ready</span>
+                </CertText>
+              </CertBadge>
+              <CertBadge>
+                <CertIcon>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                  </svg>
+                </CertIcon>
+                <CertText>
+                  <p>SOC 2 Type II</p>
+                  <span>Compliant</span>
+                </CertText>
+              </CertBadge>
+              <CertBadge>
+                <CertIcon>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                  </svg>
+                </CertIcon>
+                <CertText>
+                  <p>GDPR</p>
+                  <span>Compliant</span>
+                </CertText>
+              </CertBadge>
+            </CertRow>
 
-              </li>
-            </FloatingWrap>
-            <Brand>
-              <Image src={BrandIconName} alt="icon" />
-            </Brand>
-            <Detailslist>
-              <li>
-                <div>
-                  <p>Activity Workers</p>
-                  <h4>1,247</h4>
-                  <h6>+12%</h6>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <p>Attendance Rate</p>
-                  <h4>98.4%</h4>
-                  <h6>+2.1%</h6>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <p>Payroll Processeds</p>
-                  <h4>₹2.4Cr</h4>
-                  <h6>On-time</h6>
-                </div>
-              </li>
-              <li>
-                <div>
-                  <p>Activity Workers</p>
-                  <h4>100%</h4>
-                  <h6>Perfect</h6>
-                </div>
-              </li>
-            </Detailslist>
-            <Accuracy>
-              <AccuracyList>
-                <AccuracyItem>
-                  <Value>95%</Value>
-                  <AccuracyHeader>
-                    <span>HR Automation</span>
-                    <AccuracyTrack>
-                      <AccuracyFill style={{ width: accuracyVisible ? "95%" : "0%" }} />
-                    </AccuracyTrack>
-                  </AccuracyHeader>
-                </AccuracyItem>
+            <FeatureStack>
+              {securityFeatures.map((feature, index) => (
+                <FeatureCard key={index} $offset={index === 1 ? "2rem" : index === 2 ? "1rem" : "0"}>
+                  <FeatureIcon>{getIcon(feature.icon)}</FeatureIcon>
+                  <FeatureContent>
+                    <h4>{feature.title}</h4>
+                    <p>{feature.desc}</p>
+                  </FeatureContent>
+                  <FeatureCheck>
+                    <svg viewBox="0 0 14 14" fill="none">
+                      <path d="M11.5 3.5L5.25 9.75 2.5 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </FeatureCheck>
+                </FeatureCard>
+              ))}
+            </FeatureStack>
+          </LeftContent>
 
-                <AccuracyItem>
-                  <Value>100%</Value>
-                  <AccuracyHeader>
-                    <span>Compliance Status</span>
-                    <AccuracyTrack>
-                      <AccuracyFill style={{ width: accuracyVisible ? "100%" : "0%" }} />
-                    </AccuracyTrack>
-                  </AccuracyHeader>
-                </AccuracyItem>
-              </AccuracyList>
+          <RightContent>
+            <ShieldSection>
+              <ShieldVisual>
+                <AnimatedRing $size="14rem" $delay="0s" $opacity="0.1" />
+                <AnimatedRing $size="10rem" $delay="0.5s" $opacity="0.15" />
+                <AnimatedRing $size="6rem" $delay="1s" $opacity="0.2" />
 
-              <h4 className="bold">State-wise Accuracy</h4>
-              <p>Our compliance engine automatically adjusts to state-specific rules and regulations, ensuring 100% accuracy across all locations.</p>
-            </Accuracy>
-          </Right>
+                <ShieldCore>
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                      fill="url(#shield-grad)"
+                      stroke="url(#shield-stroke)"
+                      strokeWidth="0.5"
+                    />
+                    <path d="M9 12l2 2 4-4" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    <defs>
+                      <linearGradient id="shield-grad" x1="4" y1="2" x2="20" y2="22" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#476FFF" />
+                        <stop offset="1" stopColor="#7B60FF" />
+                      </linearGradient>
+                      <linearGradient id="shield-stroke" x1="4" y1="2" x2="20" y2="22" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="#476FFF" />
+                        <stop offset="1" stopColor="#7B60FF" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </ShieldCore>
 
-        </SectionRow>
+                <FloatingStat $top="0" $left="0">
+                  <div className="value">50K+</div>
+                  <div className="label">Records Protected</div>
+                </FloatingStat>
+                <FloatingStat $top="20%" $right="0">
+                  <div className="value">0</div>
+                  <div className="label">Data Breaches</div>
+                </FloatingStat>
+                <FloatingStat $bottom="0" $left="20%">
+                  <div className="value">99.9%</div>
+                  <div className="label">Uptime SLA</div>
+                </FloatingStat>
+              </ShieldVisual>
+            </ShieldSection>
 
+            <ComplianceSection>
+              <ComplianceHeader>
+                <h4>Statutory Compliance</h4>
+                <AutoBadge>
+                  <svg viewBox="0 0 12 12" fill="none">
+                    <path d="M10 3L4.5 8.5 2 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  Auto-Generated
+                </AutoBadge>
+              </ComplianceHeader>
+              <ComplianceTags>
+                {complianceItems.map((item, index) => (
+                  <Tag key={index}>
+                    <svg viewBox="0 0 14 14" fill="none">
+                      <path d="M11.5 3.5L5.25 9.75 2.5 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    {item}
+                  </Tag>
+                ))}
+              </ComplianceTags>
+            </ComplianceSection>
+          </RightContent>
+        </MainGrid>
 
-      </div>
+        <TrustBar>
+          <TrustItem>
+            <TrustIcon style={{ background: "linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%)" }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#476FFF" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </TrustIcon>
+            <TrustText>
+              <p>256-bit Encryption</p>
+              <span>Bank-grade security</span>
+            </TrustText>
+          </TrustItem>
+          <TrustItem>
+            <TrustIcon style={{ background: "linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%)" }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </TrustIcon>
+            <TrustText>
+              <p>24/7 Monitoring</p>
+              <span>Real-time protection</span>
+            </TrustText>
+          </TrustItem>
+          <TrustItem>
+            <TrustIcon style={{ background: "linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%)" }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#D97706" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3l-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3l-3 3" />
+              </svg>
+            </TrustIcon>
+            <TrustText>
+              <p>100+ Enterprises</p>
+              <span>Trust our platform</span>
+            </TrustText>
+          </TrustItem>
+          <TrustItem>
+            <TrustIcon style={{ background: "linear-gradient(135deg, #FCE7F3 0%, #FBCFE8 100%)" }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#DB2777" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+            </TrustIcon>
+            <TrustText>
+              <p>100% Audit Pass</p>
+              <span>Every time</span>
+            </TrustText>
+          </TrustItem>
+        </TrustBar>
+      </Container>
     </Section>
   )
 }

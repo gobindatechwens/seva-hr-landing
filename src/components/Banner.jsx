@@ -12,7 +12,7 @@ import BannerRightImg from "../assets/bannerRightImg.png";
 import "swiper/css"
 
 const Section = styled.section({
-  paddingBlock: "10rem 2rem",
+  paddingBlock: "7rem 2rem",
 });
 const Wrapper = styled.div({
   textAlign: "center",
@@ -70,7 +70,7 @@ const Heading = styled.div({
 });
 const GradientTextWrap = styled.span({
   display: "inline-block",
-  height: "3.75rem",
+  height: "4rem",
   overflow: "hidden",
   verticalAlign: "bottom",
   "& .swiper": {
@@ -83,13 +83,24 @@ const GradientTextWrap = styled.span({
   },
 
   "@media (max-width: 768px)": {
-    height: "2.75rem",
+    height: "3rem",
+  },
+  "@media (max-width: 480px)": {
+    height: "auto",
+    display: "block",
   },
 });
 const GradientText = styled.div({
-  background: "linear-gradient(90deg, #FF6600 0%, #7B60FF 106.8%)",
+  background: "linear-gradient(90deg, #FF4D00 0%, #6B4EFF 50%, #476FFF 100%)",
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
+  backgroundSize: "200% auto",
+  animation: "gradientShift 3s ease infinite",
+  "@keyframes gradientShift": {
+    "0%": { backgroundPosition: "0% center" },
+    "50%": { backgroundPosition: "100% center" },
+    "100%": { backgroundPosition: "0% center" },
+  },
   marginBlockEnd: "1rem",
 });
 const ButtonGroup = styled.div({
@@ -179,6 +190,13 @@ const BannerLeftImage = styled.div({
     width: "100% !important",
     objectFit: "contain",
   },
+  "@media (max-width: 1199px)": {
+    height: "14rem",
+    left: "1rem",
+  },
+  "@media (max-width: 991px)": {
+    display: "none",
+  },
 });
 
 const BannerRightImage = styled.div({
@@ -206,6 +224,12 @@ const BannerRightImage = styled.div({
     width: "100% !important",
     objectFit: "contain",
   },
+  "@media (max-width: 1199px)": {
+    height: "17rem",
+  },
+  "@media (max-width: 991px)": {
+    display: "none",
+  },
 });
 
 
@@ -228,8 +252,8 @@ export default function Banner() {
                   <path d="M-2.40413e-07 5.5L4.43022 4.06104L6 6.91406e-07L7.56978 4.06104L12 5.5L7.56978 6.93896L6 11L4.43022 6.93896L-2.40413e-07 5.5Z" fill="url(#paint0_linear_3927_989)" />
                   <defs>
                     <linearGradient id="paint0_linear_3927_989" x1="3.75" y1="3.20833" x2="7.15548" y2="7.17107" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#9EECFF" />
-                      <stop offset="1" stop-color="#FFFDCE" />
+                      <stop stopColor="#9EECFF" />
+                      <stop offset="1" stopColor="#FFFDCE" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -272,34 +296,29 @@ export default function Banner() {
           </p>
 
           <ButtonGroup>
-            <PrimaryButton>
-              <span><svg xmlns="http://www.w3.org/2000/svg" width="13" height="15" viewBox="0 0 13 15" fill="none">
-                <path d="M0 7.0286V2.46182C0 0.569748 2.0486 -0.613826 3.68528 0.333582L7.64243 2.61835L11.5996 4.90311C13.239 5.84777 13.239 8.21492 11.5996 9.15958L7.64243 11.4443L3.68528 13.7291C2.0486 14.671 0 13.4902 0 11.5981V7.0286Z" fill="white" />
-              </svg></span>
-              Watch Demo
-            </PrimaryButton>
-            <SecondaryButton>
-              <span>
+            <PrimaryButton type="button" aria-label="Get started with SevaHR for free">
+              <span aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M10.0035 3.40804L1.41153 12L0 10.5885L8.59096 1.99651H1.01922V0H12V10.9808H10.0035V3.40804Z" fill="black" />
-                  <path d="M10.0035 3.40804L1.41153 12L0 10.5885L8.59096 1.99651H1.01922V0H12V10.9808H10.0035V3.40804Z" fill="url(#paint0_linear_3927_981)" />
-                  <defs>
-                    <linearGradient id="paint0_linear_3927_981" x1="-3.68589e-07" y1="11.5" x2="8.5" y2="3" gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#FF6600" />
-                      <stop offset="1" stop-color="#7B60FF" />
-                    </linearGradient>
-                  </defs>
+                  <path d="M10.0035 3.40804L1.41153 12L0 10.5885L8.59096 1.99651H1.01922V0H12V10.9808H10.0035V3.40804Z" fill="white" />
                 </svg>
               </span>
               Get Started Free
+            </PrimaryButton>
+            <SecondaryButton type="button" aria-label="Watch product demo video">
+              <span aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="15" viewBox="0 0 13 15" fill="none">
+                  <path d="M0 7.0286V2.46182C0 0.569748 2.0486 -0.613826 3.68528 0.333582L7.64243 2.61835L11.5996 4.90311C13.239 5.84777 13.239 8.21492 11.5996 9.15958L7.64243 11.4443L3.68528 13.7291C2.0486 14.671 0 13.4902 0 11.5981V7.0286Z" fill="#6B5CFF" />
+                </svg>
+              </span>
+              Watch Demo
             </SecondaryButton>
           </ButtonGroup>
         </Wrapper>
         <BannerLeftImage>
-          <Image src={BannerLeftImg} alt='banner-left-image' />
+          <Image src={BannerLeftImg} alt="HR dashboard showing employee attendance metrics" />
         </BannerLeftImage>
         <BannerRightImage>
-          <Image src={BannerRightImg} alt='banner-right-image' />
+          <Image src={BannerRightImg} alt="Payroll management interface with compliance features" />
         </BannerRightImage>
 
       </div>

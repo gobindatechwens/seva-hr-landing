@@ -1,20 +1,31 @@
 "use client"
 import React from "react"
 import styled from "styled-components"
-import TextureBg from "../assets/TextureBg.png"
 import SparkleBg from "../assets/sparkle.svg"
 import Image from "next/image"
 import calculator from "../assets/calculator.svg"
-import email from "../assets/email.svg"
 import location from "../assets/location.svg"
 import privacy from "../assets/privacy.svg"
 import watch from "../assets/watch.svg"
 
+// Reusable checkmark icon component
+const CheckIcon = () => (
+  <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="24" cy="24" r="24" fill="#4F6BFF" />
+    <path d="M14 24.5L21 31L34 17" fill="none" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+// Reusable arrow icon component
+const ArrowIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+    <path d="M5.33325 16H26.6666M26.6666 16L18.6666 8M26.6666 16L18.6666 24" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 const Section = styled.section({
-  paddingBlock: "3.5rem",
-  background: "#BBD8F2",
-  backgroundImage: `linear-gradient(186deg, rgb(187 216 242 / 93%) 0%, rgb(237 240 206 / 83%) 100%), url(${TextureBg.src})`,
-  backgroundRepeat: "repeat",
+  paddingBlock: "4rem",
+  background: "#F8FAFC",
 
   "& .centerized": {
     display: "flex",
@@ -23,10 +34,10 @@ const Section = styled.section({
   "& h3": {
     fontWeight: 600,
     lineHeight: 1.3,
-    color: '#004CAE',
+    color: '#1a1a1a',
     marginBlockEnd: "0.625rem",
     borderRadius: '1.875rem',
-    backgroundColor: '#fff',
+    background: "linear-gradient(90deg, #EEF6FF 0%, #FFF9EE 100%)",
     padding: '0.625rem 1.25rem 0.625rem 2.8rem',
     display: 'inline-block',
     position: 'relative',
@@ -106,7 +117,8 @@ const FeatureItem = styled.div({
   borderRadius: "1rem",
   padding: "1.5rem",
   height: "100%",
-  transition: "all 1s ease",
+  boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
+  transition: "all 0.5s ease",
   '& h4': {
     fontWeight: '700',
     marginBlockEnd: '0.5rem',
@@ -182,11 +194,12 @@ const StatItem = styled.div({
   borderRadius: "1rem",
   padding: "1.5rem",
   height: "100%",
+  boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
   '& h4': {
     marginBlockEnd: '0rem',
     fontSize: '2.5rem',
     fontWeight: '700',
-    background: 'linear-gradient(90deg, #FF6600 0%, #7B60FF 43.8%)',
+    background: 'linear-gradient(135deg, #476FFF 0%, #7B60FF 100%)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     backgroundClip: 'text',
@@ -195,6 +208,7 @@ const StatItem = styled.div({
   '& p': {
     textAlign: 'start',
     marginBlockEnd: '0rem',
+    color: '#64748B',
   }
 });
 const CtaList = styled.div({
@@ -233,8 +247,7 @@ const CtaList = styled.div({
 const CtaButton = styled.button({
   position: "relative",
   overflow: "hidden",
-
-  padding: "1rem 1rem",
+  padding: "1rem 1.5rem",
   borderRadius: "999px",
   border: "none",
   cursor: "pointer",
@@ -269,6 +282,17 @@ const CtaButton = styled.button({
   },
 });
 
+// Payroll icon SVG component (since email.svg doesn't match payroll)
+const PayrollIcon = () => (
+  <svg width="58" height="58" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="#476FFF" opacity="0.2"/>
+    <path d="M12 6C10.9 6 10 6.9 10 8H8C8 5.79 9.79 4 12 4C14.21 4 16 5.79 16 8C16 9.86 14.73 11.43 13 11.9V13H11V10H12C13.1 10 14 9.1 14 8C14 6.9 13.1 6 12 6Z" fill="#476FFF"/>
+    <path d="M11 15H13V17H11V15Z" fill="#476FFF"/>
+    <rect x="4" y="4" width="16" height="16" rx="2" stroke="#476FFF" strokeWidth="1.5" fill="none"/>
+    <path d="M7 12H9M15 12H17" stroke="#476FFF" strokeWidth="1.5" strokeLinecap="round"/>
+  </svg>
+);
+
 
 export default function Features() {
   return (
@@ -279,85 +303,64 @@ export default function Features() {
         </div>
         <h2>Built for <span>Operational Excellence</span></h2>
         <p>Purpose-built for shift-based, multi-location operations with transparent automation and real-time visibility</p>
-        <FeatureList>
+        <FeatureList role="list" aria-label="Key features of SevaHR">
           <li>
             <FeatureItem className="FeatureItem">
               <IconWrap className="IconWrap">
-                <Image src={watch} alt="icon" />
+                <Image src={watch} alt="" aria-hidden="true" />
               </IconWrap>
               <h4>Smart Attendance & Productivity</h4>
               <p>Automated time tracking with intelligent shift management and real-time insights</p>
               <h5>98.4% Accuracy</h5>
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                  <path d="M5.33325 16H26.6666M26.6666 16L18.6666 8M26.6666 16L18.6666 24" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
+              <span><ArrowIcon /></span>
             </FeatureItem>
           </li>
 
           <li>
             <FeatureItem className="FeatureItem">
               <IconWrap className="IconWrap">
-                <Image src={calculator} alt="icon" />
+                <Image src={calculator} alt="" aria-hidden="true" />
               </IconWrap>
               <h4>Transparent Salary Calculation</h4>
               <p>Auto-computed payroll with audit-ready accuracy, eliminating disputes completely</p>
               <h5>Zero Disputes</h5>
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                  <path d="M5.33325 16H26.6666M26.6666 16L18.6666 8M26.6666 16L18.6666 24" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
+              <span><ArrowIcon /></span>
             </FeatureItem>
           </li>
 
           <li>
             <FeatureItem className="FeatureItem">
               <IconWrap className="IconWrap">
-                <Image src={email} alt="icon" />
+                <PayrollIcon />
               </IconWrap>
               <h4>Multi-Level Payroll Engine</h4>
               <p>Scalable framework built specifically for factories with unlimited configurations</p>
               <h5>Unlimited Configs</h5>
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                  <path d="M5.33325 16H26.6666M26.6666 16L18.6666 8M26.6666 16L18.6666 24" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
+              <span><ArrowIcon /></span>
             </FeatureItem>
           </li>
-
 
           <li>
             <FeatureItem className="FeatureItem">
               <IconWrap className="IconWrap">
-                <Image src={location} alt="icon" />
+                <Image src={location} alt="" aria-hidden="true" />
               </IconWrap>
               <h4>Geo-Fencing & Live Tracking</h4>
               <p>Location-verified attendance with live workforce visibility for on-site accountability</p>
               <h5>Real-time GPS</h5>
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                  <path d="M5.33325 16H26.6666M26.6666 16L18.6666 8M26.6666 16L18.6666 24" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
+              <span><ArrowIcon /></span>
             </FeatureItem>
           </li>
 
           <li>
             <FeatureItem className="FeatureItem">
               <IconWrap className="IconWrap">
-                <Image src={privacy} alt="icon" />
+                <Image src={privacy} alt="" aria-hidden="true" />
               </IconWrap>
               <h4>100% Compliance Automation</h4>
               <p>EPF, ESI, PT, LWF, TDS fully auto-generated with state-wise accuracy</p>
               <h5>100% Audit-Ready</h5>
-              <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-                  <path d="M5.33325 16H26.6666M26.6666 16L18.6666 8M26.6666 16L18.6666 24" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </span>
+              <span><ArrowIcon /></span>
             </FeatureItem>
           </li>
 
@@ -387,53 +390,20 @@ export default function Features() {
               <p>Experience the future of manufacturing HR management</p>
               <ol>
                 <li>
-                  <div>
-                    <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="24" cy="24" r="24" fill="#4F6BFF" />
-                      <path
-                        d="M14 24.5L21 31L34 17"
-                        fill="none"
-                        stroke="#FFFFFF"
-                        stroke-width="4"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  Smart Automation</li>
+                  <div><CheckIcon /></div>
+                  Free 14-day Trial
+                </li>
                 <li>
-                  <div>
-                    <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="24" cy="24" r="24" fill="#4F6BFF" />
-                      <path
-                        d="M14 24.5L21 31L34 17"
-                        fill="none"
-                        stroke="#FFFFFF"
-                        stroke-width="4"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  Zero Manual Work</li>
+                  <div><CheckIcon /></div>
+                  Setup in 24 Hours
+                </li>
                 <li>
-                  <div>
-                    <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="24" cy="24" r="24" fill="#4F6BFF" />
-                      <path
-                        d="M14 24.5L21 31L34 17"
-                        fill="none"
-                        stroke="#FFFFFF"
-                        stroke-width="4"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                  Instant Insights</li>
+                  <div><CheckIcon /></div>
+                  Dedicated Support
+                </li>
               </ol>
             </CtaList>
-            <CtaButton>
+            <CtaButton type="button" aria-label="Book a free demo of SevaHR">
               <span>Book Free Demo</span>
             </CtaButton>
           </li>

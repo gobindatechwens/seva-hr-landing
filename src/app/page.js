@@ -5,17 +5,16 @@ import Features from '@/components/Features'
 import Getstarted from '@/components/Getstarted'
 import Organizations from '@/components/Organizations'
 import Powerfullplatform from '@/components/Powerfullplatform'
-import Revoluationhr from '@/components/Revolutionhr'
+import Revolutionhr from '@/components/Revolutionhr'
 import Security from '@/components/Security'
 import Worktype from '@/components/Worktype'
-import React from 'react'
 
 const Home = () => {
   return (
-    <section>
+    <main>
       <Banner />
       <Organizations />
-      <Revoluationhr />
+      <Revolutionhr />
       <div id='features-section'>
         <Features />
       </div>
@@ -31,7 +30,7 @@ const Home = () => {
       <div id='contact-section'>
         <Actionform />
       </div>
-    </section>
+    </main>
   )
 }
 

@@ -5,10 +5,6 @@ import Image from "next/image"
 import Badge1 from "../assets/badge1.svg"
 import Badge2 from "../assets/badge2.svg"
 import Badge3 from "../assets/badge3.svg"
-import Badge4 from "../assets/sparkle.svg"
-import SparkleBg from "../assets/sparkle.svg"
-
-
 
 const Section = styled.section({
   paddingBlockEnd: "3.5rem",
@@ -17,131 +13,169 @@ const Section = styled.section({
 const SectionRow = styled.div({
   display: "flex",
   alignItems: "center",
-  gap: "2.5rem",
-  background: "linear-gradient(220.61deg, #FBFDFF -17.83%, #F2F8FF 72.58%)",
-  padding: "2.813rem",
-  borderRadius: "2.5rem",
-  boxShadow: "0px 9px 14px 0px #16517A1A",
+  gap: "3rem",
+  background: "linear-gradient(135deg, #0F172A 0%, #1E293B 100%)",
+  padding: "2.5rem",
+  borderRadius: "2rem",
+  position: "relative",
+  overflow: "hidden",
+  "&::before": {
+    content: '""',
+    position: "absolute",
+    top: "-50%",
+    left: "-20%",
+    width: "60%",
+    height: "100%",
+    background: "radial-gradient(circle, rgba(71, 111, 255, 0.15) 0%, transparent 70%)",
+    pointerEvents: "none",
+  },
+  "&::after": {
+    content: '""',
+    position: "absolute",
+    bottom: "-30%",
+    right: "-10%",
+    width: "50%",
+    height: "80%",
+    background: "radial-gradient(circle, rgba(123, 96, 255, 0.12) 0%, transparent 70%)",
+    pointerEvents: "none",
+  },
   "@media (max-width: 991px)": {
     flexDirection: "column",
+    padding: "2rem",
   },
 })
 
-
 const Left = styled.div({
-  width: "30%",
+  width: "35%",
+  position: "relative",
+  zIndex: 1,
   "@media (max-width: 991px)": {
-      width: "100%",
-    },
+    width: "100%",
+  },
   "& h3": {
     fontWeight: 600,
     lineHeight: 1.3,
-    color:'#004CAE',
+    color: "#fff",
     marginBlockEnd: "0.625rem",
-    borderRadius:'1.875rem',
-    backgroundColor:'#fff',
-    padding: '0.625rem 1.25rem 0.625rem 2.8rem',
-    display:'inline-block',
-    position:'relative',
-    '&:after':{
-      content:"''",
-      position:'absolute',
-      height:'1.313rem',
-      width:'1.5rem',
-      left: '1rem',
-      top: '50%',
-      transform: "translateY(-50%)",
-      backgroundImage: `url(${SparkleBg.src})`,
-      backgroundRepeat:'no-repeat',
-      backgroundSize: "contain",
-      backgroundPosition:"center",
-    }
+    borderRadius: "1.875rem",
+    background: "rgba(255, 255, 255, 0.1)",
+    backdropFilter: "blur(10px)",
+    padding: "0.625rem 1.25rem",
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "0.5rem",
+    border: "1px solid rgba(255, 255, 255, 0.1)",
+    fontSize: "0.875rem",
   },
   "& h2": {
-    fontSize: "2.188rem",
+    fontSize: "2.25rem",
     fontWeight: 700,
-    lineHeight: 1.3,
-    marginBlock: "0.75rem 1rem",
+    lineHeight: 1.2,
+    marginBlock: "1rem 1.25rem",
+    color: "#fff",
+    "& span": {
+      background: "linear-gradient(90deg, #60A5FA 0%, #A78BFA 50%, #F472B6 100%)",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+      backgroundClip: "text",
+      color: "transparent",
+    },
+  },
+  "& p": {
+    color: "rgba(255, 255, 255, 0.7)",
+    lineHeight: 1.7,
+    fontSize: "1rem",
   },
 })
 
-
 const Right = styled.div({
-  width: "70%",
-    "@media (max-width: 991px)": {
-      width: "100%",
-    },
+  width: "65%",
+  position: "relative",
+  zIndex: 1,
+  "@media (max-width: 991px)": {
+    width: "100%",
+  },
 })
 
 const CardList = styled.ul({
   display: "grid",
   gridTemplateColumns: "repeat(3, 1fr)",
-  gap: "1.25rem",
+  gap: "1rem",
   listStyle: "none",
   padding: 0,
   margin: 0,
+  "@media (max-width: 767px)": {
+    gridTemplateColumns: "repeat(2, 1fr)",
+  },
+  "@media (max-width: 480px)": {
+    gridTemplateColumns: "1fr",
+  },
 })
 
 const Card = styled.li({
-  padding: "1rem",
-  borderRadius: "1.563rem",
-  transition: "all .25s ease",
+  padding: "1.25rem",
+  borderRadius: "1rem",
+  transition: "all .3s ease",
   cursor: "default",
   display: "flex",
+  alignItems: "center",
   gap: "1rem",
-  border: "0.063rem solid #fff",
-  boxShadow: '-2px -3px 1px 0px #FFFFFF inset',
-  '& .points':{
-    position:'relative',
-    '&:after':{
-      content:"''",
-      position:'absolute',
-      height:'100%',
-      width:'0.0625rem',
-      backgroundColor:'#e5e7eb',
-      left:'-0.7rem',
-      top:'0',
-      opacity: 0,
-      transition: "opacity .25s ease",
-    },
-  },
+  background: "rgba(255, 255, 255, 0.05)",
+  backdropFilter: "blur(10px)",
+  border: "1px solid rgba(255, 255, 255, 0.08)",
+
   "&:hover": {
-    border: "1px solid #e5e7eb",
-    backgroundColor: "#fff",
-    boxShadow:'none',
-    
-  },
-  "&:hover .points::after": {
-    opacity: 1,
+    background: "rgba(255, 255, 255, 0.1)",
+    border: "1px solid rgba(255, 255, 255, 0.15)",
+    transform: "translateY(-2px)",
   },
 
   "& h4": {
-    fontSize: "1.25rem",
+    fontSize: "1.125rem",
     fontWeight: "700",
-    marginBlockEnd: "0.25rem",
+    marginBlockEnd: "0.125rem",
+    color: "#fff",
     "@media (max-width: 1199px)": {
-      fontSize:"1.063rem",
+      fontSize: "1rem",
     },
   },
 
   "& span": {
-    fontSize: "1rem",
+    fontSize: "0.875rem",
     fontWeight: "500",
+    color: "rgba(255, 255, 255, 0.6)",
   },
 })
 
 const Icon = styled.div({
   display: "flex",
-  height: "1.563rem",
-  width: "1.563rem",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "2.5rem",
+  width: "2.5rem",
+  borderRadius: "0.75rem",
+  background: "linear-gradient(135deg, rgba(71, 111, 255, 0.3) 0%, rgba(123, 96, 255, 0.3) 100%)",
+  border: "1px solid rgba(255, 255, 255, 0.1)",
+  flexShrink: 0,
 
   "& img": {
-    height: "100%",
-    width: "100%",
+    height: "1.25rem",
+    width: "1.25rem",
+    filter: "brightness(0) invert(1)",
   },
 })
 
-
+const SparkleIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="url(#sparkleGrad)" />
+    <defs>
+      <linearGradient id="sparkleGrad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#60A5FA" />
+        <stop offset="1" stopColor="#A78BFA" />
+      </linearGradient>
+    </defs>
+  </svg>
+)
 
 const cardData = [
   {
@@ -176,19 +210,18 @@ const cardData = [
   },
 ]
 
-
-
-export default function Revoluationhr() {
+export default function Revolutionhr() {
   return (
     <Section>
       <div className="container">
         <SectionRow>
           <Left>
-            <h3>We are Seva HR</h3>
+            <h3>
+              <SparkleIcon />
+              We are Seva HR
+            </h3>
             <h2>
-              Revolutionize Your
-              <br />
-              HR Management
+              <span>Revolutionize Your HR Management</span>
             </h2>
             <p>
               Complete workforce management solution built for complex

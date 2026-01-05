@@ -397,9 +397,9 @@ export default function Powerfullplatform() {
                         d="M14 24.5L21 31L34 17"
                         fill="none"
                         stroke="#FFFFFF"
-                        stroke-width="4"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                 </div>
@@ -413,9 +413,9 @@ export default function Powerfullplatform() {
                         d="M14 24.5L21 31L34 17"
                         fill="none"
                         stroke="#FFFFFF"
-                        stroke-width="4"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                 </div>
@@ -429,9 +429,9 @@ export default function Powerfullplatform() {
                         d="M14 24.5L21 31L34 17"
                         fill="none"
                         stroke="#FFFFFF"
-                        stroke-width="4"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                 </div>
@@ -445,9 +445,9 @@ export default function Powerfullplatform() {
                         d="M14 24.5L21 31L34 17"
                         fill="none"
                         stroke="#FFFFFF"
-                        stroke-width="4"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                 </div>
