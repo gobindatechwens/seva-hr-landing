@@ -4,9 +4,6 @@ import React from "react"
 import styled from "styled-components"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay } from "swiper/modules"
-import Image from 'next/image';
-import BannerLeftImg from "../assets/bannerLeftImg.png";
-import BannerRightImg from "../assets/bannerRightImg.png";
 import "swiper/css"
 
 const Section = styled.section({
@@ -39,7 +36,7 @@ const Badge = styled.div({
     background: "linear-gradient(89.97deg, #FFA12F 0.03%, #5433F8 88.44%)",
     borderRadius: "2.5rem",
     color: "#fff",
-    padding: "0.4rem 1.25rem",
+    padding: "0.2rem 0.7rem",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -53,8 +50,8 @@ const Badge = styled.div({
         height: "100%",
         width: "100%",
       }
-    }
-  }
+    },
+  },
 });
 const Heading = styled.div({
   fontSize: "3.25rem",
@@ -164,46 +161,7 @@ const SecondaryButton = styled.button({
     borderColor: "rgb(161, 97, 176, 0.2)",
   },
 });
-const BannerLeftImage = styled.div({
-  position: "absolute",
-  left: "2rem",
-  top: "50%",
-  transform: "translateY(-50%)",
-  height: "19rem",
-  width: "auto",
-  "& img": {
-    height: "100% !important",
-    width: "100% !important",
-    objectFit: "contain",
-  },
-  "@media (max-width: 1199px)": {
-    height: "14rem",
-    left: "1rem",
-  },
-  "@media (max-width: 991px)": {
-    display: "none",
-  },
-});
 
-const BannerRightImage = styled.div({
-  position: "absolute",
-  right: "0",
-  top: "50%",
-  transform: "translateY(-50%)",
-  height: "23rem",
-  width: "auto",
-  "& img": {
-    height: "100% !important",
-    width: "100% !important",
-    objectFit: "contain",
-  },
-  "@media (max-width: 1199px)": {
-    height: "17rem",
-  },
-  "@media (max-width: 991px)": {
-    display: "none",
-  },
-});
 
 
 
@@ -287,13 +245,6 @@ export default function Banner() {
             </SecondaryButton>
           </ButtonGroup>
         </Wrapper>
-        {/* <BannerLeftImage>
-          <Image src={BannerLeftImg} alt="HR dashboard showing employee attendance metrics" />
-        </BannerLeftImage> */}
-        {/* <BannerRightImage>
-          <Image src={BannerRightImg} alt="Payroll management interface with compliance features" />
-        </BannerRightImage> */}
-
       </div>
     </Section>
   )
