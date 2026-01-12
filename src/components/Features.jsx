@@ -139,18 +139,18 @@ const FeatureItem = styled.div({
     alignItems: "center",
     justifyContent: "space-between",
     "& span": {
-    height: "1.5rem",
-    width: "1.5rem",
-    display: "flex",
-    alignItems: "center",
-    opacity: 0,
-    transform: "translateY(3rem)",
-    transition: "all 0.45s ease",
-    "& svg": {
-      height: "100%",
-      width: "100%",
+      height: "1.5rem",
+      width: "1.5rem",
+      display: "flex",
+      alignItems: "center",
+      opacity: 0,
+      transform: "translateY(3rem)",
+      transition: "all 0.45s ease",
+      "& svg": {
+        height: "100%",
+        width: "100%",
+      }
     }
-  }
   },
   "& h5": {
     fontWeight: 600,
@@ -307,15 +307,14 @@ export default function Features() {
     <Section>
       <div className="container">
         <div className="centerized">
-
-                <Badge>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="#476FFF">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-              </svg>
-              <span>Powerful Features</span>
-            </Badge>
+          <Badge>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="#476FFF">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
+            <span>Powerful Features</span>
+          </Badge>
         </div>
-        <h2>Built for<br/><span>Operational Excellence</span></h2>
+        <h2>Built for<br /><span>Operational Excellence</span></h2>
         <p>Purpose-built for shift-based, multi-location operations with transparent automation and real-time visibility</p>
         <FeatureList role="list" aria-label="Key features of SevaHR">
           <li>
@@ -390,32 +389,32 @@ export default function Features() {
 
           <li>
             <StatItem>
-            <div className="activity">
-              <h4>5+</h4>
-              <span><ArrowIcon /></span>
+              <div className="activity">
+                <h4>5+</h4>
+                <span><ArrowIcon /></span>
               </div>
               <p>Core Modules</p>
             </StatItem>
             <StatItem>
-            <div className="activity">
-              <h4>Cloud</h4>
-              <span><ArrowIcon /></span>
+              <div className="activity">
+                <h4>Cloud</h4>
+                <span><ArrowIcon /></span>
               </div>
               <p>Based Platform</p>
             </StatItem>
           </li>
           <li>
             <StatItem>
-            <div className="activity">
-              <h4>20+</h4>
-              <span><ArrowIcon /></span>
+              <div className="activity">
+                <h4>20+</h4>
+                <span><ArrowIcon /></span>
               </div>
               <p>Smart Features</p>
             </StatItem>
             <StatItem>
-            <div className="activity">
-              <h4>99.9%</h4>
-              <span><ArrowIcon /></span>
+              <div className="activity">
+                <h4>99.9%</h4>
+                <span><ArrowIcon /></span>
               </div>
               <p>System Uptime</p>
             </StatItem>

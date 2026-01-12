@@ -184,9 +184,9 @@ const HeaderRow = styled.div({
     justifyContent: "start",
     flexShrink: 0,
     transition: "all 0.4s ease",
-    "& img": {
-      height: "100% !important",
-      width: "100% !important",
+    "& svg": {
+      height: "100%",
+      width: "100%",
     }
   },
   "& h4": {
