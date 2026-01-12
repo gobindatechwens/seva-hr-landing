@@ -1,12 +1,18 @@
 "use client"
+import PowerfullplatformIcon1 from "@/assets/svg/PowerfullplatformIcon1";
+import PowerfullplatformIcon2 from "@/assets/svg/PowerfullplatformIcon2";
+import PowerfullplatformIcon3 from "@/assets/svg/PowerfullplatformIcon3";
+import PowerfullplatformIcon4 from "@/assets/svg/PowerfullplatformIcon4";
+import PowerfullplatformIcon5 from "@/assets/svg/PowerfullplatformIcon5";
+import PowerfullplatformIcon6 from "@/assets/svg/PowerfullplatformIcon6";
 import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
-import Power1 from "../assets/svg/powerfullplatformIcon1"
-import Power2 from "../assets/svg/powerfullplatformIcon2"
-import Power3 from "../assets/svg/powerfullplatformIcon3"
-import Power4 from "../assets/svg/powerfullplatformIcon4"
-import Power5 from "../assets/svg/powerfullplatformIcon5"
-import Power6 from "../assets/svg/powerfullplatformIcon6"
+// import Power1 from "../assets/svg/powerfullplatformIcon1"
+// import Power2 from "../assets/svg/powerfullplatformIcon2"
+// import Power3 from "../assets/svg/powerfullplatformIcon3"
+// import Power4 from "../assets/svg/powerfullplatformIcon4"
+// import Power5 from "../assets/svg/powerfullplatformIcon5"
+// import Power6 from "../assets/svg/powerfullplatformIcon6"
 
 
 
@@ -321,32 +327,32 @@ export default function Powerfullplatform() {
     {
       title: "One Smart Shift Management",
       description: "Manual shift registers causing errors",
-      icon: <Power1 />
+      icon: <PowerfullplatformIcon1 />
     },
     {
       title: "Zero Overtime Disputes",
       description: "Salary mismatches creating conflicts",
-      icon: <Power2 />
+      icon: <PowerfullplatformIcon2 />
     },
     {
       title: "Real-Time accuracy",
       description: "No idea where workers are",
-      icon: <Power3 />
+      icon: <PowerfullplatformIcon3 />
     },
     {
       title: "Multi-Branch Control",
       description: "Scattered workforce across locations",
-      icon: <Power4 />
+      icon: <PowerfullplatformIcon4 />
     },
     {
       title: "60% Less HR Work For you",
       description: "Drowning in manual paperwork",
-      icon: <Power5 />
+      icon: <PowerfullplatformIcon5 />
     },
     {
       title: "Compliance on Autopilot",
       description: "Government filing stress & penalties",
-      icon: <Power6 />
+      icon: <PowerfullplatformIcon6 />
     },
   ]
 
