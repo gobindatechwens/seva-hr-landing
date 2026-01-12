@@ -33,8 +33,8 @@ const Section = styled.section({
   position: "relative",
   paddingBlock: "7rem 2rem",
   overflow: "hidden",
-})
-;
+});
+
 
 
 const RingWrapper = styled.div({
@@ -239,7 +239,7 @@ const SecondaryButton = styled.button({
   },
 });
 
-/* ---------------- COMPONENT ---------------- */
+
 
 export default function Banner() {
   return (
@@ -258,7 +258,7 @@ export default function Banner() {
           <AnimatedRing $delay="-12s" $opacity="0.06" />
           <AnimatedRing $delay="-14s" $opacity="0.04" />
         </RingWrapper>
-        {/* CONTENT */}
+
         <div className="container">
           <Wrapper>
             <Badge>
