@@ -104,9 +104,6 @@ const HeaderSection = styled.div({
 
 
 const Title = styled.h2({
-  fontSize: "2.75rem",
-  fontWeight: 800,
-  lineHeight: 1.2,
   color: "#fff",
   marginBlockEnd: "1rem",
   "& span": {
@@ -115,17 +112,12 @@ const Title = styled.h2({
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
   },
-  "@media (max-width: 767px)": {
-    fontSize: "2rem",
-  },
 });
 
 const Subtitle = styled.p({
-  fontSize: "1.125rem",
-  color: "rgba(255, 255, 255, 0.7)",
+  color: "#fff",
   maxWidth: "40rem",
   margin: "0 auto",
-  lineHeight: 1.6,
 });
 
 // Horizontal steps with connecting line
@@ -217,7 +209,7 @@ const StepTitle = styled.h4({
 
 const StepDescription = styled.p({
   fontSize: "0.875rem",
-  color: "rgba(255, 255, 255, 0.6)",
+  color: "#fff",
   marginBlockEnd: 0,
   lineHeight: 1.5,
 });
@@ -288,7 +280,7 @@ const SecondaryButton = styled.button({
 
 const TrustText = styled.p({
   fontSize: "0.875rem",
-  color: "rgba(255, 255, 255, 0.5)",
+  color: "#fff",
   display: "flex",
   alignItems: "center",
   gap: "0.5rem",
@@ -356,7 +348,7 @@ const IndustryTag = styled.div({
   "& span": {
     fontSize: "0.813rem",
     fontWeight: 500,
-    color: "rgba(255, 255, 255, 0.6);",
+    color: "#fff",
     pointerEvents: "none",
   },
 })

@@ -42,7 +42,7 @@ const SectionRow = styled.div({
   "@media (max-width: 1199px)": {
     flexDirection: "column",
     padding: "2rem",
-    gap: "1.5rem",
+    gap: "0.5rem",
   },
 })
 
@@ -54,10 +54,7 @@ const Left = styled.div({
     width: "100%",
   },
   "& h3": {
-    fontWeight: 600,
-    lineHeight: 1.3,
     color: "#fff",
-    marginBlockEnd: "0.625rem",
     borderRadius: "1.875rem",
     background: "rgba(255, 255, 255, 0.1)",
     backdropFilter: "blur(10px)",
@@ -67,22 +64,23 @@ const Left = styled.div({
     gap: "0.5rem",
     border: "1px solid rgba(255, 255, 255, 0.1)",
     fontSize: "0.875rem",
+    "@media (max-width: 991px)": {
+      padding: "0.5rem 0.9rem",
+    },
   },
   "& h2": {
     fontSize: "2.25rem",
-    fontWeight: 700,
-    lineHeight: 1.2,
-    marginBlock: "1rem 1.25rem",
     background: 'linear-gradient(90deg, #FF6600 0%, #7B60FF 80.8%)',
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
     color: "transparent",
+    "@media (max-width: 991px)": {
+    fontSize: "2rem",
+  },
   },
   "& p": {
-    color: "rgba(255, 255, 255, 0.7)",
-    lineHeight: 1.7,
-    fontSize: "1rem",
+    color: "#fff",
   },
 })
 
@@ -141,7 +139,7 @@ const Card = styled.li({
   "& span": {
     fontSize: "0.875rem",
     fontWeight: "500",
-    color: "rgba(255, 255, 255, 0.6)",
+    color: "#fff",
   },
 })
 

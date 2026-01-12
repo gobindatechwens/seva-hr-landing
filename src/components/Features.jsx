@@ -32,7 +32,6 @@ const Section = styled.section({
   },
   "& h2": {
     textAlign: 'center',
-    marginBlockEnd: '0.938rem',
     '& span': {
       background: 'linear-gradient(90deg, #FF6600 0%, #7B60FF 80.8%)',
       WebkitBackgroundClip: 'text',
@@ -42,9 +41,7 @@ const Section = styled.section({
     }
   },
   "& p": {
-    fontSize: "1.125rem",
     color: "#64748B",
-    lineHeight: 1.7,
     textAlign: "center",
   }
 });
@@ -56,8 +53,10 @@ const Badge = styled.h3({
   borderRadius: "3rem",
   background: "linear-gradient(135deg, #EEF2FF 0%, #FDF4FF 100%)",
   border: "1px solid rgba(71, 111, 255, 0.15)",
-  marginBlockEnd: "1.5rem",
   boxShadow: "0 4px 15px rgba(71, 111, 255, 0.08)",
+  "@media (max-width: 991px)": {
+    padding: "0.5rem 0.9rem",
+  },
   "& svg": {
     width: "1.125rem",
     height: "1.125rem",
@@ -125,11 +124,9 @@ const FeatureList = styled.ul({
         height: "1.5rem",
         width: "1.5rem",
         display: "flex",
-        flex: "0 0 1.5",
+        flex: "0 0 1.5rem",
         alignItems: "center",
         opacity: 1,
-        // transform: "translateY(3rem)",
-        // transition: "all 0.45s ease",
         "& svg": {
           height: "100%",
           width: "100%",
@@ -194,6 +191,11 @@ const FeatureItem = styled.div({
     opacity: 0,
     transform: "translateY(3rem)",
     transition: "all 0.45s ease",
+    "@media (max-width: 991px)": {
+      opacity: 1,
+      transform: "translateY(0rem)",
+      background: "linear-gradient(151.19deg, #ff7f0f1a 1.77%, #0036f50a 71.94% 71.94%)",
+    },
     '&:after': {
       content: "''",
       position: 'absolute',
@@ -218,10 +220,15 @@ const IconWrap = styled.div({
   justifyContent: "start",
   marginBlockEnd: "0.938rem",
   transition: "all 0.45s ease",
+  "@media (max-width: 991px)": {
+    width: "2.5rem",
+    height: "2.5rem",
+  },
   "& svg": {
     height: "100% !important",
     width: "100% !important",
   }
+
 })
 
 
@@ -231,6 +238,9 @@ const StatItem = styled.div({
   padding: "1.5rem",
   height: "100%",
   boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
+  "@media (max-width: 1199px)": {
+    padding: "1rem",
+  },
   '& h4': {
     marginBlockEnd: '0rem',
     fontSize: '2.5rem',
@@ -240,11 +250,17 @@ const StatItem = styled.div({
     WebkitTextFillColor: 'transparent',
     backgroundClip: 'text',
     color: 'transparent',
+    "@media (max-width: 991px)": {
+      fontSize: '1.5rem',
+    },
   },
   '& p': {
     textAlign: 'start',
     marginBlockEnd: '0rem',
     color: '#64748B',
+    "@media (max-width: 1199px)": {
+      fontSize: "0.875rem",
+    },
   }
 });
 const CtaList = styled.div({
@@ -252,9 +268,15 @@ const CtaList = styled.div({
     fontSize: "1.875rem",
     marginBlockEnd: "0.5rem",
     fontWeight: "700",
+    "@media (max-width: 1199px)": {
+      fontSize: "1.5rem",
+    },
   },
   "& p": {
     textAlign: "start",
+    "@media (max-width: 1199px)": {
+      fontSize: "0.875rem",
+    },
   },
   "& ol": {
     padding: "0rem",
@@ -262,12 +284,18 @@ const CtaList = styled.div({
     display: "flex",
     flexDirection: "column",
     gap: "0.5rem",
+    "@media (max-width: 991px)": {
+      gap: "0.2rem",
+    },
     "& li": {
       fontSize: " 1rem",
       width: "100%",
       display: 'flex',
       gap: "0.5rem",
       flexDirection: "row",
+      "@media (max-width: 991px)": {
+        fontSize: "0.875rem",
+      },
       "& div": {
         height: '0.875rem',
         width: '0.875rem',

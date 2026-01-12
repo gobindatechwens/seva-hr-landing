@@ -129,9 +129,7 @@ const Badge = styled.div({
   }
 });
 
-const Heading = styled.div({
-  fontSize: "3.25rem",
-  fontWeight: 700,
+const Heading = styled.h1({
   lineHeight: 1.15,
   marginBlockEnd: "0.5rem",
   "@media (max-width: 768px)": {
@@ -139,9 +137,7 @@ const Heading = styled.div({
   },
 });
 const Subtitle = styled.p({
-  fontSize: "1.125rem",
   color: "#64748B",
-  lineHeight: 1.7,
   textAlign: "center",
 });
 
@@ -284,7 +280,7 @@ export default function Banner() {
               </div>
             </Badge>
             <Heading>
-              <Heading>Powerful HRMS for</Heading>
+              <div>Powerful HRMS for</div>
               <GradientTextWrap>
                 <Swiper
                   direction="vertical"

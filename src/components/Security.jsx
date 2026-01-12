@@ -8,7 +8,7 @@ const Section = styled.section({
   overflow: "hidden",
   background: "linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 50%, #F0F4FF 100%)",
   "@media (max-width: 1199px)": {
-        paddingBlock: "3rem",
+      paddingBlock: "3rem",
     },
   "&::before": {
     content: '""',
@@ -75,8 +75,10 @@ const Badge = styled.h3({
   borderRadius: "3rem",
   background: "linear-gradient(135deg, #EEF2FF 0%, #FDF4FF 100%)",
   border: "1px solid rgba(71, 111, 255, 0.15)",
-  marginBlockEnd: "1.5rem",
   boxShadow: "0 4px 15px rgba(71, 111, 255, 0.08)",
+    "@media (max-width: 991px)": {
+    padding: "0.5rem 0.9rem",
+  },
   "& svg": {
     width: "1.125rem",
     height: "1.125rem",
@@ -91,11 +93,6 @@ const Badge = styled.h3({
 })
 
 const Title = styled.h2({
-  fontSize: "2.75rem",
-  fontWeight: 800,
-  color: "#1a1a1a",
-  lineHeight: 1.15,
-  marginBlockEnd: "1rem",
   "& span": {
     display: "inline-block",
     background: 'linear-gradient(90deg, #FF6600 0%, #7B60FF 80.8%)',
@@ -103,17 +100,12 @@ const Title = styled.h2({
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
   },
-  "@media (max-width: 768px)": {
-    fontSize: "2rem",
-  },
 })
 
 const Subtitle = styled.p({
-  fontSize: "1.125rem",
   color: "#64748B",
   maxWidth: "38rem",
   margin: "0 auto",
-  lineHeight: 1.7,
 })
 
 // Main content with asymmetric layout
@@ -468,24 +460,6 @@ const TrustBar = styled.div({
   },
 })
 
-const TrustItem = styled.div({
-  display: "flex",
-  alignItems: "center",
-  gap: "0.75rem",
-})
-
-const TrustIcon = styled.div({
-  width: "2.5rem",
-  height: "2.5rem",
-  borderRadius: "0.75rem",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  "& svg": {
-    width: "1.25rem",
-    height: "1.25rem",
-  },
-})
 
 
 

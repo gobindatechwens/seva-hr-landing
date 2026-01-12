@@ -129,7 +129,6 @@ const Section = styled.section({
   },
   "& h2": {
     textAlign: 'center',
-    marginBlockEnd: '0.938rem',
     '& span': {
       background: 'linear-gradient(90deg, #FF6600 0%, #7B60FF 80.8%)',
       WebkitBackgroundClip: 'text',
@@ -147,8 +146,10 @@ const Badge = styled.h3({
   borderRadius: "3rem",
   background: "linear-gradient(135deg, #EEF2FF 0%, #FDF4FF 100%)",
   border: "1px solid rgba(71, 111, 255, 0.15)",
-  marginBlockEnd: "1.5rem",
   boxShadow: "0 4px 15px rgba(71, 111, 255, 0.08)",
+  "@media (max-width: 991px)": {
+    padding: "0.5rem 0.9rem",
+  },
   "& svg": {
     width: "1.125rem",
     height: "1.125rem",
@@ -162,11 +163,9 @@ const Badge = styled.h3({
   },
 });
 const Subtitle = styled.p({
-  fontSize: "1.125rem",
   color: "#64748B",
   maxWidth: "38rem",
   margin: "0 auto",
-  lineHeight: 1.7,
   textAlign: "center",
 });
 const SectionRow = styled.div({
@@ -189,7 +188,7 @@ export const CardGrid = styled.ul({
   gridTemplateColumns: "repeat(3, 1fr)",
   gap: "3.125rem",
   "@media (max-width: 1199px)": {
-      gap: "1rem",
+    gap: "1rem",
   },
   "@media (max-width: 575px)": {
     gridTemplateColumns: "1fr",

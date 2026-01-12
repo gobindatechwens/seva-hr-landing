@@ -77,8 +77,10 @@ const Badge = styled.h3({
   borderRadius: "3rem",
   background: "linear-gradient(135deg, #EEF2FF 0%, #FDF4FF 100%)",
   border: "1px solid rgba(71, 111, 255, 0.15)",
-  marginBlockEnd: "1.5rem",
   boxShadow: "0 4px 15px rgba(71, 111, 255, 0.08)",
+    "@media (max-width: 991px)": {
+    padding: "0.5rem 0.9rem",
+  },
   "& svg": {
     width: "1.125rem",
     height: "1.125rem",
@@ -93,17 +95,11 @@ const Badge = styled.h3({
 })
 
 const Title = styled.h2({
-  fontSize: "2.5rem",
-  fontWeight: 800,
-  lineHeight: 1.2,
   marginBlockEnd: "1rem",
   background: 'linear-gradient(90deg, #FF6600 0%, #7B60FF 80.8%)',
   WebkitBackgroundClip: 'text',
   WebkitTextFillColor: 'transparent',
   backgroundClip: 'text',
-  "@media (max-width: 767px)": {
-    fontSize: "1.75rem",
-  },
 });
 
 const Subtitle = styled.h3({
