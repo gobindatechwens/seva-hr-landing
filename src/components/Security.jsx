@@ -633,7 +633,7 @@ export default function Security() {
             <FeatureStack>
               {securityFeatures.map((feature, index) => (
                 <FeatureCard
-                // key={index} $offset={index === 1 ? "2rem" : index === 2 ? "1rem" : "0"}
+                key={index}
                 >
                   <FeatureIcon>{getIcon(feature.icon)}</FeatureIcon>
                   <FeatureContent>
