@@ -103,8 +103,10 @@ const IndustryTag = styled.div({
   borderRadius: "2rem",
   border: "1px solid #E2E8F0",
   transition: "all 0.2s ease",
-  "@media (max-width: 575px)": {
+  "@media (max-width: 991px)": {
     padding: "0.3rem 0.5rem",
+    gap: "0.25rem",
+
   },
   "&:hover": {
     borderColor: "rgba(71, 111, 255, 0.3)",

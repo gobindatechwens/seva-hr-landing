@@ -65,7 +65,7 @@ const Left = styled.div({
     border: "1px solid rgba(255, 255, 255, 0.1)",
     fontSize: "0.875rem",
     "@media (max-width: 991px)": {
-      padding: "0.5rem 0.9rem",
+      padding: "0.35rem 0.7rem",
     },
   },
   "& h2": {

@@ -151,7 +151,7 @@ const Badge = styled.h3({
   border: "1px solid rgba(71, 111, 255, 0.15)",
   boxShadow: "0 4px 15px rgba(71, 111, 255, 0.08)",
   "@media (max-width: 991px)": {
-    padding: "0.5rem 0.9rem",
+    padding: "0.35rem 0.7rem",
   },
   "& svg": {
     width: "1.125rem",
@@ -308,6 +308,7 @@ export const Points = styled.ol({
     "& div": {
       height: '0.75rem',
       width: '0.75rem',
+      flex:"0 0 0.75rem",
       "& svg": {
         height: '100%',
         width: '100%',

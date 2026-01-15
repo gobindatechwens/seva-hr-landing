@@ -45,7 +45,7 @@ const Badge = styled.h3({
   border: "1px solid rgba(71, 111, 255, 0.15)",
   boxShadow: "0 4px 15px rgba(71, 111, 255, 0.08)",
   "@media (max-width: 991px)": {
-    padding: "0.5rem 0.9rem",
+    padding: "0.35rem 0.7rem",
   },
   "& svg": {
     width: "1.125rem",
@@ -77,7 +77,7 @@ const Left = styled.div({
   paddingInlineEnd: "1rem",
   "@media (max-width: 991px)": {
     width: "100%",
-  paddingInlineEnd: "0rem",
+    paddingInlineEnd: "0rem",
 
   },
   "&.in-view": {
@@ -200,6 +200,9 @@ export const Right = styled.div({
     flexWrap: "wrap",
     justifyContent: "center",
     gap: "1rem",
+    "@media (max-width: 991px)": {
+      gap: "0.5rem",
+    },
     "& li": {
       width: "calc((100% - 1rem) / 2)",
       padding: "1rem",

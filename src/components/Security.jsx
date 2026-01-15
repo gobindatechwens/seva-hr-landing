@@ -77,7 +77,7 @@ const Badge = styled.h3({
   border: "1px solid rgba(71, 111, 255, 0.15)",
   boxShadow: "0 4px 15px rgba(71, 111, 255, 0.08)",
   "@media (max-width: 991px)": {
-    padding: "0.5rem 0.9rem",
+    padding: "0.35rem 0.7rem",
   },
   "& svg": {
     width: "1.125rem",
@@ -152,7 +152,7 @@ const CertBadge = styled.div({
   boxShadow: "0 4px 20px rgba(16, 185, 129, 0.08)",
   transition: "all 0.3s ease",
   '@media (max-width: 991px)': {
-    padding: "0.5rem",
+    padding: "0.25rem 0.75rem",
     borderRadius: "0.75rem",
   },
   "&:hover": {
@@ -172,6 +172,8 @@ const CertIcon = styled.div({
   '@media (max-width: 991px)': {
     width: "2rem",
     height: "2rem",
+    borderRadius: "0.5rem",
+
   },
   "& svg": {
     width: "1.125rem",
@@ -219,6 +221,7 @@ const FeatureCard = styled.div(({ $offset }) => ({
   position: "relative",
   "@media (max-width: 991px)": {
     padding: "0.75rem 1rem ",
+    borderRadius:"0.75rem",
   },
   "&::before": {
     content: '""',
@@ -248,6 +251,7 @@ const FeatureCard = styled.div(({ $offset }) => ({
 const FeatureIcon = styled.div({
   width: "3.25rem",
   height: "3.25rem",
+  padding: "0.75rem",
   borderRadius: "1rem",
   background: "linear-gradient(135deg, #476FFF 0%, #7B60FF 100%)",
   display: "flex",
@@ -257,12 +261,14 @@ const FeatureIcon = styled.div({
   "@media (max-width: 991px)": {
     width: "2.5rem",
     height: "2.5rem",
-    borderRadius: "0.75rem",
+    padding: "0.65rem",
+    borderRadius: "0.5rem",
   },
   "& svg": {
-    width: "1.5rem",
-    height: "1.5rem",
+    width: "100%",
+    height: "100%",
     color: "#fff",
+
   },
 })
 
